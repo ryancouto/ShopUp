@@ -20,7 +20,8 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
   },
 
   submitRequest: function () {
-
+    var startDay = $('#datepicker').val();
+    var endDay = $('#datepicker2').val();
   }
 
 })
