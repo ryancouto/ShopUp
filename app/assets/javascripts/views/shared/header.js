@@ -20,10 +20,9 @@ ShopUp.Views.Header = Backbone.View.extend({
 
   signOut: function(event){
     event.preventDefault();
-    debugger
     ShopUp.currentUser.signOut({
       success: function(){
-        Backbone.history.navigate("", { trigger: true });
+        Backbone.history.navigate("/#/shops", { trigger: true });
       }
     });
   }

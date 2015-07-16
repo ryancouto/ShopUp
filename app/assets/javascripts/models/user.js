@@ -35,6 +35,7 @@ ShopUp.Models.CurrentUser = ShopUp.Models.User.extend({
       success: function(data){
         model.set(data);
         options.success && options.success();
+        Backbone.navigate('/#/shops')
       },
       error: function(){
         options.error && options.error();
@@ -52,9 +53,6 @@ ShopUp.Models.CurrentUser = ShopUp.Models.User.extend({
       success: function(data){
         model.clear();
         options.success && options.success();
-      },
-      error: function() {
-        console.log('error')
       }
     });
   },
