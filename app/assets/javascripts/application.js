@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require jquery.serializejson
 //= require jquery-ui
-//= require jquery-ui.min
 //= require underscore
 //= require backbone
 //= require shop_up

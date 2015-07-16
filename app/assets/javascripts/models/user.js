@@ -13,7 +13,7 @@ ShopUp.Models.CurrentUser = ShopUp.Models.User.extend({
   url: '/api/session',
 
   initialize: function (options) {
-    this,listentTo(this, "change", this.fireSessionEvent);
+    this.listenTo(this, "change", this.fireSessionEvent);
   },
 
   isSignedIn: function () {

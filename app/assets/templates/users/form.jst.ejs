@@ -1,0 +1,19 @@
+<form class="user-form">
+  <label>Email
+  	<input type="text" name="user[email]" value="<%= user.escape('email') %>">
+  </label>
+
+  <label>First Name
+  	<input type="text" name="user[fname]" value ="<%= user.escape('fname') %>">
+  </label>
+
+  <label>Last Name
+  	<input type="text" name="user[lname]" value="<%= user.escape('lname') %>">
+  </label>
+
+  <label>Password
+  	<input type="password" name="user[password]" value="">
+  </label>
+
+  <button>Submit</button>
+</form>

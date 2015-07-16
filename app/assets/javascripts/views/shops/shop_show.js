@@ -21,7 +21,6 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
   },
 
   createDatepicker: function () {
-    console.log('creating datepicker')
     $( "#datepicker" ).datepicker();
     $( "#datepicker2" ).datepicker();
   },
@@ -35,9 +34,17 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
   },
 
   submitRequest: function () {
+    var view = this;
+    debugger
+    var request = new ShopUp.Models.Reservation({
+      shop_id: view.model.id,
+      owner_id: view.model.get('owner_id'),
+      renter_id: window.currentUser.id
+    })
     var startDay = this.dateParser($('#datepicker').val());
     var endDay = this.dateParser($('#datepicker2').val());
-    // current_user shop_id stuff
+
+    debugger
   }
 
 })

@@ -8,8 +8,8 @@ ShopUp.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    'signup': 'userNew',
-    'login': 'sessionNew',
+    'signup': 'signUp',
+    'login': 'logIn',
     'users/:id': 'userShow',
     'users/:id/edit': 'userEdit',
 
@@ -24,26 +24,67 @@ ShopUp.Routers.Router = Backbone.Router.extend({
     'res/:id/edit': 'resEdit'
   },
 
-  newUser: function () {
-    var user = new ShopUp.Models.Users();
+  signUp: function () {
+    if (!this._requireSignedOut()) { return; }
+    var user = new ShopUp.Models.User();
     var newView = new ShopUp.Views.UserForm({
       model: user,
       collection: this.users
     });
 
-    this._swapView(newView)
+    this._swapView(newView);
   },
 
-  newSession: function () {
+  logIn: function (callback) {
+    if (!this._requireSignedOut(callback)) { return; }
+    var signInView = new ShopUp.Views.SignIn({
+      callback: callback
+    });
 
+    this._swapView(signInView);
   },
 
-  userShow: function () {
+  userShow: function (id) {
+    var user = this.users.getOrFetch(id);
+    var showView = new ShopUp.Views.UserShow({
+      model: user
+    });
 
+    this._swapView(showView);
   },
 
-  userEdit: function () {
+  userEdit: function (id) {
+    var user = this.users.getOrFetch(id);
+    var editView = new ShopUp.Views.UserForm({
+      model: user,
+      collection: this.users
+    });
 
+    this._swapView(editView);
+  },
+
+  _requireSignedIn: function(callback){
+    if (!ShopUp.currentUser.isSignedIn()) {
+      callback = callback || this._goHome.bind(this);
+      this.signIn(callback);
+      return false;
+    }
+
+    return true;
+  },
+
+  _requireSignedOut: function(callback){
+    if (ShopUp.currentUser.isSignedIn()) {
+      callback = callback || this._goHome.bind(this);
+      callback();
+      return false;
+    }
+
+    return true;
+  },
+
+  _goHome: function(){
+    Backbone.history.navigate("", { trigger: true });
   },
 
   //////////

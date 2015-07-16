@@ -4,6 +4,8 @@ window.ShopUp = {
   Views: {},
   Routers: {},
   initialize: function() {
+    this.currentUser = new ShopUp.Models.CurrentUser();
+    this.currentUser.fetch();
 
     new ShopUp.Routers.Router({
       $rootEl: $('.content'),

@@ -28,6 +28,7 @@ end
 
 user = User.find(1)
 
+
 300.times do
 	Reservation.create(
 	approved: false,
