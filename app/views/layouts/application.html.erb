@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShopUp</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="nav-bar">
+  <a href="/#">
+  <img src="http://i.imgur.com/v7CU8Yz.png" class="logo">
+</a>
+
+  <% if !logged_in? %>
+  <nav class="login-links">
+
+      <a href="<%= new_session_url %>" class="login">
+        Login
+      </a>
+
+      <a href="<%= new_user_url %>" class="signup">
+        Create Account
+      </a>
+
+  </nav>
+  <% else %>
+  <a href="<%= user_url(current_user) %>">
+    <% if current_user.fname.blank? %>
+      <%= current_user.email %>
+    <% else %>
+      <%= current_user.fname %>
+    <% end %>
+  </a>
+    <form action="<%= session_url %>" method="POST">
+      <%= auth %>
+      <input type="hidden" name="_method" value ="DELETE">
+      <button>Log Out</button>
+    </form>
+  <% end %>
+
+</div>
+
+<div class="errors">
+  <%= flash.now[:errors].join("<br>").html_safe if flash.now[:errors] %>
+</div>
+
+<%= yield %>
+
+<div class="content">
+
+</div>
+
+<form action="/#/shops" method="GET">
+	<button>
+		Shops Index
+	</button>
+</form>
+</body>
+</html>

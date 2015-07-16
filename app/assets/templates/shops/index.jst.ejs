@@ -1,0 +1,12 @@
+<% shops.forEach( function(shop) { %>
+<p>
+  <a href="#/shops/<%= shop.id %>">
+<%= shop.escape('address') %>, <%= shop.escape('city') %>
+</a>
+<br>
+<%= shop.escape('size') %> square feet, $<%= shop.escape('price') %>/day
+</p>
+<br>
+<br>
+
+<% }); %>

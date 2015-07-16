@@ -1,0 +1,31 @@
+<% if !(@user.fname.blank?) %>
+	<h2><%= @user.fname %>'s Profile</h2>
+<% else %>
+	<h2><%= @user.email %>'s Profile</h2>
+<% end %>
+<% if current_user && current_user.id == @user.id %>
+	<form action="<%= edit_user_url(@user) %>">
+		<button>
+			Edit User Info
+		</button>
+	</form>
+
+	<form action="<%= user_url(@user) %>" method="POST">
+		<input type="hidden" name="_method" value="DELETE">
+		<%= auth %>
+		<button>
+			Delete Account
+		</button>
+	</form>
+<% end %>
+<% if @user.shops %>
+	<% @user.shops.each do |shop| %>
+		<p>
+			<a href="/#/shops/<%= shop.id %>">
+				<%= shop.address %>, <%= shop.city %>
+			</a>
+			<br>
+			<%= shop.size %> ft^2, $<%= shop.price %>/day
+		</p>
+	<% end %>
+<% end %>

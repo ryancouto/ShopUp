@@ -1,0 +1,29 @@
+<form class="shop-form">
+
+	<label>
+		Address
+		<input type="text" name="shop[address]" value="<%= shop.escape('address') %>">
+	</label>
+
+	<label>
+		City
+		<input type="text" name="shop[city]" value="<%= shop.escape('city') %>">
+	</label>
+
+	<label>
+		Description
+		<input type="textarea" name="shop[description]" value="<%= shop.escape('description') %>">
+	</label>
+
+	<label>
+		Price
+		<input type="text" name="shop[price]" value="<%= shop.escape('price') %>">
+	</label>
+
+	<label>
+		Size
+		<input type="text" name="shop[size]" value="<%= shop.escape('size') %>">
+	</label>
+
+	<button class="shop-form-button">Submit</button>
+</form>

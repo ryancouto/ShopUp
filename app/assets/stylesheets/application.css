@@ -1,0 +1,81 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ html, head, body, header,
+nav, h1, a, ul, li, main,
+section, p, footer, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+header, nav, main, section,
+footer, small {
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Clearfix */
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.nav-bar {
+  position: relative;
+  background: blue;
+}
+
+.logo {
+  max-width: 5%;
+  max-height: 5%;
+}
+
+.login-links {
+  display: block;
+  float: right;
+  background: pink;
+  margin-top: 20px;
+}
+
+.login {
+  display: inline-block;
+  float: left;
+  background: lightgrey;
+  margin-right: 20px;
+}
+
+.signup {
+  display: inline-block;
+  float: right;
+  background: yellow;
+}
+
+.content {
+  background: lightblue;
+}
