@@ -4,10 +4,14 @@
   <title>ShopUp</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
-
   <%= csrf_meta_tags %>
+
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
-<body>
+<body class="body">
 
 <div class="nav-bar">
   <a href="/#">
@@ -17,34 +21,26 @@
   <% if !logged_in? %>
   <nav class="login-links">
 
-      <a href="<%= new_session_url %>" class="login">
+      <a href="/#/login" class="login">
         Login
       </a>
 
-      <a href="<%= new_user_url %>" class="signup">
+      <a href="/#/signup" class="signup">
         Create Account
       </a>
 
   </nav>
   <% else %>
-  <a href="<%= user_url(current_user) %>">
+  <a href="/#/users/<%=current_user.id %>">
     <% if current_user.fname.blank? %>
       <%= current_user.email %>
     <% else %>
       <%= current_user.fname %>
     <% end %>
   </a>
-    <form action="<%= session_url %>" method="POST">
-      <%= auth %>
-      <input type="hidden" name="_method" value ="DELETE">
-      <button>Log Out</button>
-    </form>
+    <button class="logout">Log Out</button>
   <% end %>
 
-</div>
-
-<div class="errors">
-  <%= flash.now[:errors].join("<br>").html_safe if flash.now[:errors] %>
 </div>
 
 <%= yield %>

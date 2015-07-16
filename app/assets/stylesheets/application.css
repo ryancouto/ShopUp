@@ -60,7 +60,7 @@ ul {
   display: block;
   float: right;
   background: pink;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .login {
@@ -78,4 +78,9 @@ ul {
 
 .content {
   background: lightblue;
+}
+
+.body {
+  width: 800px;
+  margin: 0 auto;
 }

@@ -1,7 +1,7 @@
 json.extract! @shop, :id, :owner_id, :address, :city, :description, :price, :size, :created_at, :updated_at, :reservations
 
 @shop.reservations.each do |reservation|
-  json.extract! reservation.id
+  json.id reservation.id
   json.owner_id reservation.owner_id
   json.renter_id reservation.renter_id
   json.shop_id reservation.shop_id

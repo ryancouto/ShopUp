@@ -5,14 +5,11 @@ window.ShopUp = {
   Routers: {},
   initialize: function() {
 
-    new ShopUp.Routers.Shops({
+    new ShopUp.Routers.Router({
       $rootEl: $('.content'),
-      shops: ShopUp.Collections.shops
-    });
-
-    new ShopUp.Routers.Reservations({
-      $rootEl: $('#content'),
-      reservations: ShopUp.Collections.reservations
+      shops: ShopUp.Collections.shops,
+      reservations: ShopUp.Collections.reservations,
+      users: ShopUp.Collections.reservations
     });
 
     Backbone.history.start();

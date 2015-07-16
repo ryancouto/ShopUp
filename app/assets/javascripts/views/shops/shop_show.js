@@ -14,14 +14,30 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
     var content = this.template({
       shop: this.model
     });
-
     this.$el.html(content);
+    this.createDatepicker();
     return this;
+
+  },
+
+  createDatepicker: function () {
+    console.log('creating datepicker')
+    $( "#datepicker" ).datepicker();
+    $( "#datepicker2" ).datepicker();
+  },
+
+  dateParser: function (date) {
+    var unparsed = $.datepicker.parseDate("mm/dd/yy", date)
+    var month = unparsed.getMonth() + 1;
+    var date = unparsed.getDate();
+    var year = unparsed.getFullYear();
+    return $.datepicker.parseDate("dd/mm/yy", date+'/'+month+'/'+year)
   },
 
   submitRequest: function () {
-    var startDay = $('#datepicker').val();
-    var endDay = $('#datepicker2').val();
+    var startDay = this.dateParser($('#datepicker').val());
+    var endDay = this.dateParser($('#datepicker2').val());
+    // current_user shop_id stuff
   }
 
 })
