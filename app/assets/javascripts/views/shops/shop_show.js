@@ -29,7 +29,8 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
     var month = unparsed.getMonth() + 1;
     var date = unparsed.getDate();
     var year = unparsed.getFullYear();
-    return $.datepicker.parseDate("dd/mm/yy", date+'/'+month+'/'+year)
+    var day = unparsed.getDay();
+    return year + '-' + month + '-' + date
   },
 
   submitRequest: function (event) {
@@ -37,14 +38,22 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
 
     var view = this;
     var request = new ShopUp.Models.Reservation({
-      shop_id: view.model.id,
       owner_id: view.model.get('owner_id'),
-      renter_id: window.currentUser.id,
-    })
-    var startDay = this.dateParser($('#datepicker').val());
-    var endDay = this.dateParser($('#datepicker2').val());
+      renter_id: ShopUp.currentUser.id,
+      shop_id: view.model.id,
+      start_day: view.dateParser($('#datepicker').val()),
+      end_day: view.dateParser($('#datepicker2').val()),
+      approved: false
+    });
 
-    debugger
+    request.save({}, {
+      succes: function () {
+        console.log('woohoo')
+      },
+      error: function(data) {
+        console.log('bummer')
+      }
+    })
   }
 
-})
+});

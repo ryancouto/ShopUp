@@ -10,8 +10,6 @@ class Api::ReservationsController < ApplicationController
 
   def create
     @reservation = current_user.requested_reservations.new(reserv_params)
-    shop = Shop.find(params[:shop_id])
-    @reservation.owner_id = shop.owner_id
     if @reservation.save
       render json: @reservation
     else

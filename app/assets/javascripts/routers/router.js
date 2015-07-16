@@ -113,7 +113,8 @@ ShopUp.Routers.Router = Backbone.Router.extend({
   shopShow: function (id) {
     var showShop = this.shops.getOrFetch(id);
     var showView = new ShopUp.Views.ShopShow({
-      model: showShop
+      model: showShop,
+      reservations: this.reservations
     });
 
     this._swapView(showView);
