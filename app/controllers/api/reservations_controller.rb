@@ -1,5 +1,9 @@
 class Api::ReservationsController < ApplicationController
 
+  def index
+    @reservations = Reservation.all
+  end
+
   def new
     @reservation = current_user.requested_reservations.new
   end

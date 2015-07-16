@@ -1,0 +1,18 @@
+<h1>ShopUp</h1>
+
+<% if(ShopUp.currentUser.isSignedIn()) { %>
+
+  <p>
+    Signed in as:
+    <a href="#users/<%= ShopUp.currentUser.id %>"><%= ShopUp.currentUser.escape("fname") %></a> |
+    <a href="#" id="sign-out-link">Sign Out</a>
+  </p>
+
+<% } else { %>
+
+  <p>
+    <a href="#/signup">Sign Up</a> |
+    <a href="#/login">Log In</a>
+  </p>
+
+<% } %>

@@ -5,6 +5,7 @@ ShopUp.Routers.Router = Backbone.Router.extend({
     this.users = options.users;
     this.shops = options.shops;
     this.reservations = options.reservations;
+    this.users.fetch();
   },
 
   routes: {

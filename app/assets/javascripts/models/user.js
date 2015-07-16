@@ -52,6 +52,9 @@ ShopUp.Models.CurrentUser = ShopUp.Models.User.extend({
       success: function(data){
         model.clear();
         options.success && options.success();
+      },
+      error: function() {
+        console.log('error')
       }
     });
   },
