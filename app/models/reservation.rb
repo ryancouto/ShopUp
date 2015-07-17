@@ -18,7 +18,7 @@ class Reservation < ActiveRecord::Base
 	validates :owner_id, :renter_id, :shop_id, :start_day, :end_day, presence: true
 	validate :owner_and_renter
 	validate :start_before_end
-	validate :correct_owner
+	# validate :correct_owner
 
 	belongs_to :shop
 
@@ -44,11 +44,10 @@ class Reservation < ActiveRecord::Base
 		end
 	end
 
-	def correct_owner
-		shop = Shop.find(self.shop_id)
-		if self.owner_id != shop.owner_id
-			errors.add[:error, "Wrong owner"]
-		end
-	end
+	# def correct_owner
+	# 	if self.owner_id != shop.try(:owner_id)
+	# 		errors.add[:error, "Wrong owner"]
+	# 	end
+	# end
 
 end

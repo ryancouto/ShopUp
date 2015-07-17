@@ -56,6 +56,6 @@ class Api::ReservationsController < ApplicationController
 
   private
   def reserv_params
-    params.require(:reservation).permit(:shop_id, :start_day, :end_day, :approved?)
+    params.require(:reservation).permit(:shop_id, :start_day, :end_day, :approved?, :owner_id, :renter_id, :approved)
   end
 end

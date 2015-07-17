@@ -20,6 +20,7 @@ ShopUp.Views.ResForm = Backbone.View.extend({
   },
 
   submit: function () {
+    debugger
     var attrs = this.$el.serializeJSON();
     var view = this
     this.model.set(attrs);
