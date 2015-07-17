@@ -4,26 +4,55 @@
   <br>
   <%= shop.escape('size') %> square feet, $<%= shop.escape('price') %>/day
 </p>
+</div>
 <br>
 <p>
-  <% shop.reservations().forEach( function(res) { %>
+  <% if (shop.get('owner_id') === ShopUp.currentUser.get('id')) { %>
 
-  <%= res.escape('start_day') %> - <%= res.escape('end_day') %>
-  <br>
-  Approved: <%= res.escape('approved') %>
-  <br>
-  <br>
+    <% shop.reservations().forEach( function(res) { %>
+      <p>
 
-  <% }) %>
+        <%= res.escape('start_day') %> - <%= res.escape('end_day') %>
+        <br>
+        Approved: <%= res.escape('approved') %>
+        <br>
+
+        <% if (res.get('approved')) { %>
+
+          <button class="reject" data-id="<%= res.escape('id') %>">
+            Reject Request
+          </button>
+
+        <% } else { %>
+
+          <button class="approve" data-id="<%= res.escape('id') %>">
+            Approve Request
+          </button>
+
+        <% } %>
+
+        <button class="delete-request" data-id="<%= res.escape('id') %>">
+          Delete Request
+        </button>
+
+        <br>
+        <br>
+
+      </p>
+
+    <% }) %>
+
+  <% } else if (ShopUp.currentUser.id) { %>
+
+    <button class="request-button">
+      Request Reservation
+    </button>
+
+
+    <p>Start Date: <input type="text" id="datepicker"></p>
+
+    <p>End Date: <input type="text" id="datepicker2"></p>
+
+  <%  } %>
+
 </p>
-</div>
-
-
-<button class="request-button">
-  Request Reservation
-</button>
-
-
-<p>Start Date: <input type="text" id="datepicker"></p>
-
-<p>End Date: <input type="text" id="datepicker2"></p>

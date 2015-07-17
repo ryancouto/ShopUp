@@ -2,12 +2,18 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
 
   template: JST['shops/show'],
 
-  initialize: function () {
+  initialize: function (options) {
     this.listenTo(this.model, 'sync', this.render);
+    this.reservations = options.reservations;
+    this.listenTo(this.reservations, 'sync change add remove', this.render);
+    this.listenTo(ShopUp.currentUser, 'sync add change remove', this.render);
   },
 
   events: {
-    'click .request-button': 'submitRequest'
+    'click .request-button': 'submitRequest',
+    'click .approve': 'approveRequest',
+    'click .reject': 'rejectRequest',
+    'click .delete-request': 'deleteRequest'
   },
 
   render: function () {
@@ -40,7 +46,6 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
 
     var view = this;
     var request = new ShopUp.Models.Reservation();
-    debugger
 
     request.save({
       owner_id: this.model.get('owner_id').toString(),
@@ -51,13 +56,58 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
       approved: false
     }, {
       success: function () {
-        console.log('woohoo')
+        view.reservations.add(request, { merge: true })
+        view.render()
+        view.$el.append('Reservation successfully requested');
       },
       error: function(data) {
-        console.log(data)
-        console.log(view.model.id)
+        view.$el.append('Request unsuccessful, please try again');
       }
     });
+  },
+
+  approveRequest: function (event) {
+    event.preventDefault();
+    var view = this
+    var id = $(event.currentTarget).data('id');
+    var res = ShopUp.Collections.reservations.getOrFetch(id);
+    res.save({'approved': true},{
+      success: function () {
+        view.reservations.add(res, { merge: true })
+        view.$el.append('Request approved');
+      },
+      error: function (data) {
+        console.log(data);
+      }
+    });
+  },
+
+  rejectRequest: function (event) {
+    event.preventDefault();
+    var view = this
+    var id = $(event.currentTarget).data('id');
+    var res = ShopUp.Collections.reservations.getOrFetch(id);
+    res.save({'approved': false},{
+      success: function () {
+        view.reservations.add(res, { merge: true })
+        view.$el.append('Request rejected');
+      },
+      error: function (data) {
+        console.log(data);
+      }
+    });
+  },
+
+  deleteRequest: function (event) {
+    event.preventDefault();
+    var view = this
+    var id = $(event.currentTarget).data('id');
+    var res = ShopUp.Collections.reservations.getOrFetch(id);
+    res.destroy({
+      success: function () {
+        view.reservations.remove(res)
+      }
+    })
   }
 
 });

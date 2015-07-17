@@ -8,7 +8,7 @@ ShopUp.Views.SignIn = Backbone.View.extend({
 
   initialize: function (options) {
     this.callback = options.callback;
-    this.listenTo(ShopUp.currentUser, 'signIn', this.signInCallback);
+    // this.listenTo(ShopUp.currentUser, 'signIn', this.signInCallback);
   },
 
   render: function () {
@@ -21,22 +21,29 @@ ShopUp.Views.SignIn = Backbone.View.extend({
     event.preventDefault();
     var $form = $(event.currentTarget);
     var formData = $form.serializeJSON().user;
+    var view = this
 
     ShopUp.currentUser.signIn({
       email: formData.email,
       password: formData.password,
+      success: function () {
+        $(view.$('input')).each( function() {
+          $(this).val("");
+        });
+        Backbone.history.navigate('#/shops', { trigger: true })
+      },
       error: function(){
         alert("Wrong username/password combination. Please try again.");
       }
     });
   },
 
-  signInCallback: function(event){
-    if(this.callback) {
-      this.callback();
-    } else {
-      Backbone.history.navigate("/#/shops", { trigger: true });
-    }
-  }
+  // signInCallback: function(event){
+  //   if(this.callback) {
+  //     this.callback();
+  //   } else {
+  //     Backbone.history.navigate("/#/shops", { trigger: true });
+  //   }
+  // }
 
 });

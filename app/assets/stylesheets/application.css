@@ -52,8 +52,8 @@ ul {
 }
 
 .logo {
-  max-width: 5%;
-  max-height: 5%;
+  max-width: 25%;
+  max-height: 25%;
 }
 
 .login-links {
@@ -78,13 +78,23 @@ ul {
 
 .content {
   background: lightblue;
-}
-
-.body {
   width: 800px;
   margin: 0 auto;
 }
 
+.body {
+}
+
 header {
-  background: red;
+  position: relative;
+  display: block;
+  background: url(http://i.imgur.com/ONJyLjy.jpg);
+  color: white;
+  height: 500px;
+  font: Montserrat;
+}
+
+.user-info {
+  position: absolute;
+  bottom: 0;
 }

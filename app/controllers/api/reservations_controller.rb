@@ -47,7 +47,6 @@ class Api::ReservationsController < ApplicationController
     @reservation = current_user.pending_reservations.find(params[:id])
     if @reservation
       @reservation.destroy
-      redirect_to user_url(current_user.id)
     else
       shops = Shop.all
       render json: shops
