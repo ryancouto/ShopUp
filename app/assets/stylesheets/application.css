@@ -10,6 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require jquery-ui
+ *= require jquery-ui.structure
  *= require_tree .
  *= require_self
  */
@@ -59,14 +61,12 @@ ul {
 .login-links {
   display: block;
   float: right;
-  background: pink;
   margin-top: 10px;
 }
 
 .login {
   display: inline-block;
   float: left;
-  background: lightgrey;
   margin-right: 20px;
 }
 
@@ -78,23 +78,72 @@ ul {
 
 .content {
   background: lightblue;
-  width: 800px;
-  margin: 0 auto;
 }
 
 .body {
+  color: black;
 }
 
 header {
   position: relative;
+}
+
+#thin-header {
+  background: red;
   display: block;
-  background: url(http://i.imgur.com/ONJyLjy.jpg);
+}
+
+.logo-thin {
+  height: 40px;;
+}
+
+img {
+  display: inline;
+}
+
+.user-info-thin {
+  position: absolute;
+  right: 60px;
+  top: 0px;
+  transform: translate(-50%, 50%);
   color: white;
-  height: 500px;
-  font: Montserrat;
+  text-shadow: 2px 2px #000;
+}
+
+.search-bar-thin {
+  position: absolute;
+  display: block;
+  left: 50%;
+  bottom: 12px;
+  transform: translate(-50%, 0);
+}
+
+.home {
+  display: block;
+  color: lightgrey;
+  height: 1000px;
+  width: 100%;
 }
 
 .user-info {
   position: absolute;
-  bottom: 0;
+  right: 60px;
+  top: 0px;
+  text-shadow: 2px 2px 2px #000;
+  padding: 20px 90px 20px;
+}
+
+.search-bar {
+  position: absolute;
+  display: block;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.search-text {
+  width: 175px;
+}
+
+.search-date {
 }

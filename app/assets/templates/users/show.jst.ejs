@@ -1,4 +1,4 @@
-<% if (user.fname) { %>
+<% if (user.get('fname')) { %>
   <h2><%= user.escape('fname') %> <%= user.escape('lname') %></h2>
 <% } else { %>
   <h2><%= user.escape('email') %></h2>

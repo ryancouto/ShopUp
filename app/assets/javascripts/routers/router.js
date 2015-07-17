@@ -25,6 +25,10 @@ ShopUp.Routers.Router = Backbone.Router.extend({
     'res/:id/edit': 'resEdit'
   },
 
+  home: function () {
+    this._swapHome(ShopUp.header);
+  },
+
   signUp: function () {
     if (!this._requireSignedOut()) { return; }
     var user = new ShopUp.Models.User();
@@ -162,10 +166,17 @@ ShopUp.Routers.Router = Backbone.Router.extend({
 
 ////////
 
+  _swapHome: function (view) {
+    this._currentView && this._currentView.remove();
+    this._currentView = view;
+    this.$rootEl.html(view.render().$el)
+  },
+
   _swapView: function (view) {
     this._currentView && this._currentView.remove();
     this._currentView = view;
-    this.$rootEl.html(view.render().$el);
+    this.$rootEl.html(ShopUp.thinHeader.render().el);
+    this.$rootEl.append(view.render().$el);
   }
 
 })

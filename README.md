@@ -10,8 +10,8 @@ ShopUp is an AirBnB clone built on Rails and backbone. Users can:
 - [x] Create accounts
 - [x] Create sessions (log in)
 - [x] Post shops
-- [ ] View shop
-- [ ] Reserve shops
+- [x] View shop
+- [x] Reserve shops
 - [ ] Search shops by location and price
 - [ ] Review shops
 
