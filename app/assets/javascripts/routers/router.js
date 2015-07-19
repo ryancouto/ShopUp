@@ -26,7 +26,7 @@ ShopUp.Routers.Router = Backbone.Router.extend({
   },
 
   home: function () {
-    this._swapHome(ShopUp.header);
+    this._swapView(ShopUp.header);
   },
 
   signUp: function () {
@@ -166,16 +166,11 @@ ShopUp.Routers.Router = Backbone.Router.extend({
 
 ////////
 
-  _swapHome: function (view) {
-    this._currentView && this._currentView.remove();
-    this._currentView = view;
-    this.$rootEl.html(view.render().$el)
-  },
-
   _swapView: function (view) {
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(ShopUp.thinHeader.render().el);
+    ShopUp.thinHeader.delegateEvents();
     this.$rootEl.append(view.render().$el);
   }
 
