@@ -6,7 +6,7 @@ window.ShopUp = {
   initialize: function() {
     this.currentUser = new ShopUp.Models.CurrentUser();
     this.currentUser.fetch();
-    this.header = new ShopUp.Views.Header()
+    this.home = new ShopUp.Views.Home()
     this.thinHeader = new ShopUp.Views.ThinHeader({
       el: $('#thin-header')
     })

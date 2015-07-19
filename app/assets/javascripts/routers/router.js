@@ -26,7 +26,7 @@ ShopUp.Routers.Router = Backbone.Router.extend({
   },
 
   home: function () {
-    this._swapView(ShopUp.header);
+    this._swapView(ShopUp.home);
   },
 
   signUp: function () {
