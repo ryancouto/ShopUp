@@ -10,6 +10,7 @@ window.ShopUp = {
     this.header = new ShopUp.Views.Header({
       el: $('#thin-header')
     });
+    this.header.render();
     this.router = new ShopUp.Routers.Router({
       $rootEl: $('.content'),
       shops: ShopUp.Collections.shops,
