@@ -1,6 +1,7 @@
 ShopUp.Routers.Router = Backbone.Router.extend({
 
   initialize: function (options) {
+    this.$header = options.$header;
     this.$rootEl = options.$rootEl;
     this.users = options.users;
     this.shops = options.shops;
@@ -170,9 +171,7 @@ ShopUp.Routers.Router = Backbone.Router.extend({
   _swapView: function (view) {
     this._currentView && this._currentView.remove();
     this._currentView = view;
-    this.$rootEl.html(ShopUp.thinHeader.render().el);
-    ShopUp.thinHeader.delegateEvents();
-    this.$rootEl.append(view.render().$el);
+    this.$rootEl.html(view.render().$el);
   }
 
 })

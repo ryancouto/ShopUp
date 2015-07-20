@@ -11,6 +11,7 @@ window.ShopUp = {
       el: $('#thin-header')
     });
     this.router = new ShopUp.Routers.Router({
+      $headerEl: $('.header'),
       $rootEl: $('.content'),
       shops: ShopUp.Collections.shops,
       reservations: ShopUp.Collections.reservations,

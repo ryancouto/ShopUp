@@ -5,8 +5,7 @@ ShopUp.Views.ThinHeader = Backbone.View.extend({
   },
 
   events: {
-    "click #sign-out-link": "signOut",
-    "click #datepicker": "createDatepicker"
+    "click #sign-out-link": "signOut"
   },
 
   template: JST['shared/thin_header'],

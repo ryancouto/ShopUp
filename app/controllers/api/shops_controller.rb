@@ -1,10 +1,14 @@
 class Api::ShopsController < ApplicationController
 
+	def search
+		@shops = Shop.all
+	end
+
 	def new
 		if current_user
 			@shop = current_user.shops.new
 		else
-			redirect_to new_session_url
+			render @shop.errors.full_messages, status: :unprocessable_entity
 		end
 	end
 
