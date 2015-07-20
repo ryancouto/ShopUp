@@ -6,21 +6,18 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 
-  <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5tkdI3D20Sjic-QScWq_fF1zbI6pwPNs">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5tkdI3D20Sjic-QScWq_fF1zbI6pwPNs">
   </script>
 
   <meta charset="utf-8">
-
-
 
 </head>
 <body class="body">
 
 <div id="map-canvas"></div>
+
 <%= yield %>
-<div class="header">
-</div>
+
 <div class="container">
 <div class="content">
 

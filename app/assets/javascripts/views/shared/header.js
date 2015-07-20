@@ -1,4 +1,4 @@
-ShopUp.Views.ThinHeader = Backbone.View.extend({
+ShopUp.Views.Header = Backbone.View.extend({
 
   initialize: function(options){
     this.listenTo(ShopUp.currentUser, "signIn signOut", this.render);
@@ -8,12 +8,13 @@ ShopUp.Views.ThinHeader = Backbone.View.extend({
     "click #sign-out-link": "signOut"
   },
 
-  template: JST['shared/thin_header'],
+  template: JST['shared/header'],
 
   render: function(){
     var content = this.template({ currentUser: ShopUp.currentUser });
     this.$el.html(content);
     this.createDatepicker();
+    this.autoCompleter();
 
     return this;
   },
@@ -31,6 +32,28 @@ ShopUp.Views.ThinHeader = Backbone.View.extend({
         Backbone.history.navigate("", { trigger: true });
       }
     });
+  },
+
+  autoCompleter: function() {
+    var availableTags = [
+      "New York City",
+      "San Francisco",
+      "Brooklyn",
+      "Oakland",
+      "Los Angeles",
+      "London",
+      "Paris",
+      "Tokyo",
+      "Chicago",
+      "Berlin",
+      "Copenhagen",
+      "Amsterdam"
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
   }
+
+
 
 });

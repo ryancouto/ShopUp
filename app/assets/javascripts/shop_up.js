@@ -7,11 +7,10 @@ window.ShopUp = {
     this.currentUser = new ShopUp.Models.CurrentUser();
     this.currentUser.fetch();
     this.home = new ShopUp.Views.Home();
-    this.thinHeader = new ShopUp.Views.ThinHeader({
+    this.header = new ShopUp.Views.Header({
       el: $('#thin-header')
     });
     this.router = new ShopUp.Routers.Router({
-      $headerEl: $('.header'),
       $rootEl: $('.content'),
       shops: ShopUp.Collections.shops,
       reservations: ShopUp.Collections.reservations,

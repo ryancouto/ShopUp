@@ -48,6 +48,14 @@ ul {
   clear: both;
 }
 
+body {
+  box-sizing: content-box;
+}
+
+.ui-widget-content {
+  background: white;
+}
+
 .header-nav {
   width: 900px;
   margin: 0 auto;
