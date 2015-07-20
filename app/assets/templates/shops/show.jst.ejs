@@ -1,3 +1,21 @@
+<head>
+
+<style type="text/css">
+  html, body, #map-canvas { height: 75%; margin: 0; padding: 0;}
+</style>
+  <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: { lat: -34.397, lng: 150.644},
+          zoom: 8
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+</head>
+
 <div class="info">
 <p>
   <%= shop.escape('address') %>, <%= shop.escape('city') %>
@@ -11,8 +29,11 @@
 
     <% shop.reservations().forEach( function(res) { %>
       <p>
+        <% var renter = res.get('renter_id') %>
 
         <%= res.escape('start_day') %> - <%= res.escape('end_day') %>
+        <br>
+        <%= renter %>
         <br>
         Approved: <%= res.escape('approved') %>
         <br>
@@ -43,16 +64,28 @@
     <% }) %>
 
   <% } else if (ShopUp.currentUser.id) { %>
+    <h3>Pending Reservations</h3>
+   <% shop.reservations().forEach( function (res) { %>
+     <% if (ShopUp.currentUser.get('id') === res.get('renter_id')) { %>
+       <%= res.escape('start_day') %> - <%= res.escape('end_day') %>
+       <br>
+       Approved: <%= res.escape('approved') %>
+       <br><br>
+     <% } %>
+   <% }) %>
+   <p>
+
+
+
+    <p>Start Date: <input type="text" id="datepicker3"></p>
+
+    <p>End Date: <input type="text" id="datepicker4"></p>
 
     <button class="request-button">
       Request Reservation
     </button>
-
-
-    <p>Start Date: <input type="text" id="datepicker"></p>
-
-    <p>End Date: <input type="text" id="datepicker2"></p>
-
+  </p>
   <%  } %>
 
+<div id="map-canvas"></div>
 </p>

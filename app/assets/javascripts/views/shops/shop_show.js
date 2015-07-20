@@ -7,6 +7,15 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
     this.reservations = options.reservations;
     this.listenTo(this.reservations, 'sync change add remove', this.render);
     this.listenTo(ShopUp.currentUser, 'sync add change remove', this.render);
+    google.maps.event.addDomListener(window, 'load', this.map.bind(this));
+  },
+
+  map: function () {
+    var mapOptions = {
+      center: { lat: -34.397, lng: 150.644},
+      zoom: 8
+    };
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   },
 
   events: {
@@ -26,8 +35,8 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
   },
 
   createDatepicker: function () {
-    this.$( "#datepicker" ).datepicker();
-    this.$( "#datepicker2" ).datepicker();
+    this.$( "#datepicker3" ).datepicker();
+    this.$( "#datepicker4" ).datepicker();
   },
 
   dateParser: function (date) {
@@ -51,8 +60,8 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
       owner_id: this.model.get('owner_id').toString(),
       renter_id: ShopUp.currentUser.id.toString(),
       shop_id: this.model._previousAttributes.id.toString(),
-      start_day: this.dateParser($('#datepicker').val()),
-      end_day: this.dateParser($('#datepicker2').val()),
+      start_day: this.dateParser($('#datepicker3').val()),
+      end_day: this.dateParser($('#datepicker4').val()),
       approved: false
     }, {
       success: function () {
@@ -109,5 +118,6 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
       }
     })
   }
+
 
 });

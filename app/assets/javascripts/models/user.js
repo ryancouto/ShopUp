@@ -5,6 +5,21 @@ ShopUp.Models.User = Backbone.Model.extend({
   toJSON: function () {
     var json = { user: _.clone(this.attributes) };
     return json
+  },
+
+  shops: function () {
+    if (!this._shops) {
+      this._shops = new ShopUp.Collections.Shops([], { user: this });
+    }
+    return this._shops
+  },
+
+  parse: function (response) {
+    if (response.shops) {
+      this.shops().set(response.shops, { parse: true });
+      delete response.shops;
+    }
+    return response
   }
 });
 
@@ -60,10 +75,8 @@ ShopUp.Models.CurrentUser = ShopUp.Models.User.extend({
   fireSessionEvent: function(){
     if(this.isSignedIn()){
       this.trigger("signIn");
-      console.log("currentUser is signed in!", this);
     } else {
       this.trigger("signOut");
-      console.log("currentUser is signed out!", this);
     }
   }
 

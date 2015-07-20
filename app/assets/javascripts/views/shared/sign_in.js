@@ -30,7 +30,7 @@ ShopUp.Views.SignIn = Backbone.View.extend({
         $(view.$('input')).each( function() {
           $(this).val("");
         });
-        Backbone.history.navigate('#/shops', { trigger: true })
+        Backbone.history.navigate('/#', { trigger: true })
       },
       error: function(){
         alert("Wrong username/password combination. Please try again.");

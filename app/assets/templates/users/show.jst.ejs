@@ -3,3 +3,10 @@
 <% } else { %>
   <h2><%= user.escape('email') %></h2>
 <% } %>
+<% user.shops().forEach( function (shop){ %>
+<p>
+  <a href="#/shops/<%= shop.id %>">
+    <%= shop.get('address') %>, <%= shop.get('city') %>
+  </a>
+</p>
+<% }) %>

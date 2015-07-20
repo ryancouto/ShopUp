@@ -7,7 +7,7 @@ ShopUp.Views.UserForm = Backbone.View.extend({
   },
 
   events: {
-    'submit form': 'submit'
+    'submit .user-form': 'submit'
   },
 
   render: function () {
@@ -23,9 +23,8 @@ ShopUp.Views.UserForm = Backbone.View.extend({
     var $form = $(event.currentTarget);
     var attrs = $form.serializeJSON().user;
     var view = this
-
     this.model.set(attrs);
-    this.model.save({
+    this.model.save({},{
       success: function () {
         ShopUp.currentUser.fetch();
         view.collection.add(view.model, { merge: true });
@@ -33,7 +32,7 @@ ShopUp.Views.UserForm = Backbone.View.extend({
         console.log('no errors')
       },
       error: function(data) {
-        console.log('errors');
+        console.log(data);
       }
     });
   }
