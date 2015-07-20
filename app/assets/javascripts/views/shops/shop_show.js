@@ -7,7 +7,7 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
     this.reservations = options.reservations;
     this.listenTo(this.reservations, 'sync change add remove', this.render);
     this.listenTo(ShopUp.currentUser, 'sync add change remove', this.render);
-    google.maps.event.addDomListener(window, 'load', this.map.bind(this));
+    this.listenTo(window, 'change sync add remove load', this.map.bind(this));
   },
 
   map: function () {

@@ -13,7 +13,7 @@ ShopUp is an AirBnB clone built on Rails and backbone. Users can:
 - [x] View shop
 - [x] Reserve shops
 - [ ] Search shops by location and price
-- [ ] Review shops
+- [x] Review shops
 
 ## Design Docs
 * [View Wireframes][views]
@@ -47,7 +47,7 @@ will be displayed on their associated shop's backbone show pages.
 
 ### Phase 4: CSS styling, JQuery Plugins, Google Maps (~1-2 days)
 I will begin CSS styling for the shop's show page, as well as the root page. I will
-also utilize a Jquery slideshow on the hsop show page to display associated
+also utilize a Jquery slideshow on the shop show page to display associated
 pictures. Additionally, I will show shop's locations through the google Maps
 API on their show page.
 
