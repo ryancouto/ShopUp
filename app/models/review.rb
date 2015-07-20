@@ -13,7 +13,7 @@
 
 class Review < ActiveRecord::Base
 
-  validates :body, :shop_id, :user_i, presence: true
+  validates :body, :shop_id, :user_id, presence: true
 
   belongs_to :shop
 

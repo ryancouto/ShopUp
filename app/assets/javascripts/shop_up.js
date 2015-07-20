@@ -14,7 +14,8 @@ window.ShopUp = {
       $rootEl: $('.content'),
       shops: ShopUp.Collections.shops,
       reservations: ShopUp.Collections.reservations,
-      users: ShopUp.Collections.users
+      users: ShopUp.Collections.users,
+      reviews: ShopUp.Collections.reviews
     });
 
     Backbone.history.start();

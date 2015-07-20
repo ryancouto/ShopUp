@@ -13,7 +13,7 @@ ShopUp.Models.Shop = Backbone.Model.extend({
       this._reviews = new ShopUp.Collections.Reviews([], { shop: this });
     }
     return this._reviews;
-  }
+  },
 
   parse: function (response) {
     if (response.reservations) {

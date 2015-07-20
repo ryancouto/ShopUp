@@ -87,5 +87,14 @@
   </p>
   <%  } %>
 
+<% shop.reviews().forEach( function(review) { %>
+
+  <%= review.get('title') %>
+  <br>
+  <%= review.get('body') %>
+  <br><br>
+
+<% }) %>
+
 <div id="map-canvas"></div>
 </p>
