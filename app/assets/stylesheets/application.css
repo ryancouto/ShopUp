@@ -169,6 +169,7 @@ img {
   font-size: 36px;
   font-weight: bold;
   color: #aaa;
+
 }
 
 .home-subheader {
@@ -204,4 +205,18 @@ img {
 
 .row > a > img:hover {
   outline: 1px #aaa solid;
+}
+
+.title {
+  text-align: center;
+  color: white;
+  position: relative;
+  font-size: 36px;
+  top: 203px;
+  text-shadow:
+  3px 3px 0 #000,
+  -1px -1px 0 #000,
+  1px -1px 0 #000,
+  -1px 1px 0 #000,
+  1px 1px 0 #000;
 }
