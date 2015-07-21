@@ -147,7 +147,8 @@ ShopUp.Routers.Router = Backbone.Router.extend({
   shopEdit: function (id) {
     var editShop = this.shops.getOrFetch(id);
     var editView = new ShopUp.Views.ShopForm({
-      model: editShop
+      model: editShop,
+      collection: this.shops
     });
 
     this._swapView(editView);

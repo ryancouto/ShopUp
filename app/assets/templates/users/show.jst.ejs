@@ -1,21 +1,37 @@
 <% if (user.get('fname')) { %>
-  <h2><%= user.escape('fname') %> <%= user.escape('lname') %></h2>
+  <h2 class="user-name"><%= user.escape('fname') %> <%= user.escape('lname') %></h2>
 <% } else { %>
-  <h2><%= user.escape('email') %></h2>
+  <h2 class="user-name"><%= user.escape('email') %></h2>
 <% } %>
-<h2>Owned Shops</h2>
-<% user.shops().forEach( function (shop){ %>
-<p>
-  <a href="#/shops/<%= shop.id %>">
-    <%= shop.get('address') %>, <%= shop.get('city') %>
-  </a>
-</p>
-<% }) %>
-<% if (ShopUp.currentUser.id === user.id) { %>
-  <h2>Your Requested Reservations</h2>
-  <% user.reservationRequests().forEach( function (res) { %>
-    <%= res.get('shop_id') %>
-    <%= res.get('start_date') %> - <%= res.get('end_date') %>
-    <br>
-  <% }) %>
-<% } %>
+
+
+<div class="user-show group">
+  <div class="users-shops">
+    <h3 class="owned-shops-header">
+      Owned Shops
+    </h3>
+    <% user.shops().forEach( function (shop){ %>
+      <div class="shop-info">
+        <a href="#/shops/<%= shop.id %>">
+          <%= shop.get('address') %>, <%= shop.get('city') %>
+        </a>
+      </div>
+    <% }) %>
+  </div>
+
+  <% if (ShopUp.currentUser.id === user.id) { %>
+    <div class="users-res-reqs">
+      <h3 class="res-req-header">
+        Your Requested Reservations
+      </h3>
+      <% user.reservationRequests().forEach( function (res) { %>
+        <div class="res-req-info">
+        <%= res.get('shop_id') %>
+          <div class="res-dates">
+            <%= res.get('start_date') %> - <%= res.get('end_date') %>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+</div>
