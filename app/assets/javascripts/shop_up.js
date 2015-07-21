@@ -8,7 +8,7 @@ window.ShopUp = {
     this.currentUser.fetch();
     this.home = new ShopUp.Views.Home();
     this.header = new ShopUp.Views.Header({
-      el: $('#thin-header')
+      el: $('#header')
     });
     this.header.render();
     this.router = new ShopUp.Routers.Router({

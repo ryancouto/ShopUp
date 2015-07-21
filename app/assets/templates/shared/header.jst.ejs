@@ -1,31 +1,43 @@
-<nav class="header-nav">
+<nav class="header-nav group">
+
   <a href="/#">
-    <img src="http://i.imgur.com/hLCTHtU.png" class="logo">
+    <img src="http://i.imgur.com/f0THGNq.png" class="logo">
   </a>
 
-  <div class="user-info-thin group">
+  <div class="user-info group">
+
   <% if(ShopUp.currentUser.isSignedIn()) { %>
 
-    <p>
-      Signed in as:
-      <a href="#users/<%= ShopUp.currentUser.id %>"><%= ShopUp.currentUser.escape("fname") %></a> |
+      <a href="#users/<%= ShopUp.currentUser.id %>">
+        <%= ShopUp.currentUser.escape("fname") %>
+      </a>
       <a href="#" id="sign-out-link">Sign Out</a>
-    </p>
 
   <% } else { %>
 
-    <p>
-      <a href="#/signup" class="signup">Sign Up</a>
+    <a href="#/signup" class="signup">
+      Sign Up
+    </a>
 
-      <a href="#/login" class="login">Log In</a>
-    </p>
+    <a href="#/login" class="login">
+      Log In
+    </a>
 
   <% } %>
+
   </div>
 
-  <div class="search-bar-thin">
-  <input type="text" placeholder="Where do you want to pop up?" class="search-text" id="tags"><input type="text" id="datepicker" placeholder="start date" class="search-date"><input type="text" id="datepicker2" placeholder="end date" class="search-date"><button class="search-button">
+  <div class="search-bar">
+    <input type="text" placeholder="Where do you want to pop up?" class="search-text" id="tags">
+
+    <input type="text" id="datepicker" placeholder="start date" class="search-date">
+
+    <input type="text" id="datepicker2" placeholder="end date" class="search-date">
+
+    <button class="search-button">
       Search
     </button>
+
   </div>
+
 </nav>
