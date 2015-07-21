@@ -26,7 +26,6 @@ ShopUp.Views.LogIn = Backbone.View.extend({
       email: formData.email,
       password: formData.password,
       success: function () {
-        debugger
         $(view.$('input')).each( function() {
           $(this).val("");
         });

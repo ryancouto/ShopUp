@@ -22,7 +22,6 @@ ShopUp.Views.UserForm = Backbone.View.extend({
     event.preventDefault();
     var attrs = $('.user-form').serializeJSON().user;
     var view = this
-    debugger;
     this.model.save( attrs, {
       success: function () {
         ShopUp.currentUser.fetch();

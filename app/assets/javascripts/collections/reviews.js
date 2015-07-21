@@ -1,7 +1,7 @@
 ShopUp.Collections.Reviews = Backbone.Collection.extend({
   url: '/api/reviews',
 
-  model: ShopUp.Models.Reservation,
+  model: ShopUp.Models.Review,
 
   getOrFetch: function (id) {
     var model = this.get(id);

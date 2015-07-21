@@ -1,11 +1,15 @@
 class Api::ReviewsController < ApplicationController
 
+  def index
+    @reviews = Review.all
+  end
+
   def new
     @review = current_user.reviews.new
   end
 
   def create
-    @review = current_user.reviews.new
+    @review = current_user.reviews.new(review_params)
     if @review.save
       render json: @review
     else

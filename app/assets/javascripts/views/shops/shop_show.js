@@ -5,15 +5,19 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
   initialize: function (options) {
     this.listenTo(this.model, 'sync', this.render);
     this.reservations = options.reservations;
+    this.reviews = options.reviews;
     this.listenTo(this.reservations, 'sync change add remove', this.render);
     this.listenTo(ShopUp.currentUser, 'sync add change remove', this.render);
+    this.listenTo(this.reviews, 'sync add change remove', this.render);
   },
 
   events: {
     'click .request-button': 'submitRequest',
     'click .approve': 'approveRequest',
     'click .reject': 'rejectRequest',
-    'click .delete-request': 'deleteRequest'
+    'click .delete-request': 'deleteRequest',
+    'click .write-review': 'insertReviewForm',
+    'click .review-form-submit': 'submitReview'
   },
 
   render: function () {
@@ -108,6 +112,35 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
         view.reservations.remove(res)
       }
     })
+  },
+
+  insertReviewForm: function (event) {
+    event.preventDefault();
+    var $but = $('.review-button');
+    $but.empty();
+    var $div = $('.review-form-insert')
+    $div.html("<form class='review-form'><input type='text' name='review[title]' placeholder='title' class='review-title'><input type='string' name='review[body]' placeholder='write your review here' class='review-body'><button class='review-form-submit'>Post Review</button></form>");
+  },
+
+  submitReview: function (event) {
+    event.preventDefault();
+    var view = this
+    var attrs = $('.review-form').serializeJSON().review;
+    var review = new ShopUp.Models.Review();
+    review.save({
+      shop_id: this.model.id.toString(),
+      user_id: ShopUp.currentUser.id.toString(),
+      body: attrs.body,
+      title: attrs.title
+    }, {
+      success: function () {
+        view.reviews.add(review);
+      },
+      error: function (data) {
+        alert('Not a valid review. Review must have content. Please try again.')
+        console.log(data);
+      }
+    });
   }
 
 
