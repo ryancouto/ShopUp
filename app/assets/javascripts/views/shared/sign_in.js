@@ -3,7 +3,7 @@ ShopUp.Views.SignIn = Backbone.View.extend({
   template: JST['shared/sign_in'],
 
   events: {
-    'submit form': 'submit'
+    'click button': 'submit'
   },
 
   initialize: function (options) {
