@@ -221,7 +221,6 @@
       // If listening doesn't exist, this object is not currently
       // listening to obj. Break out early.
       if (!listening) break;
-
       listening.obj.off(name, callback, this);
     }
     if (_.isEmpty(listeningTo)) this._listeningTo = void 0;

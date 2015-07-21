@@ -8,7 +8,7 @@
 
   <% if(ShopUp.currentUser.isSignedIn()) { %>
 
-      <a href="#users/<%= ShopUp.currentUser.id %>">
+      <a href="#/users/<%= ShopUp.currentUser.id %>">
         <%= ShopUp.currentUser.escape("fname") %>
       </a>
       <a href="#" id="sign-out-link">Sign Out</a>

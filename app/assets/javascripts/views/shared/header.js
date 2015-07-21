@@ -47,13 +47,15 @@ ShopUp.Views.Header = Backbone.View.extend({
       "Chicago",
       "Berlin",
       "Copenhagen",
-      "Amsterdam"
+      "Amsterdam",
+      "Philadelphia",
+      "Miami",
+      "Boston",
+      "Montreal"
     ];
     $( "#tags" ).autocomplete({
       source: availableTags
     });
   }
-
-
 
 });
