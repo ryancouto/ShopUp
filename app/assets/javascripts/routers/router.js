@@ -7,7 +7,6 @@ ShopUp.Routers.Router = Backbone.Router.extend({
     this.shops = options.shops;
     this.reviews = options.reviews;
     this.reservations = options.reservations;
-    this.users.fetch();
   },
 
   routes: {
@@ -45,7 +44,7 @@ ShopUp.Routers.Router = Backbone.Router.extend({
 
   logIn: function (callback) {
     if (!this._requireSignedOut(callback)) { return; }
-    var signInView = new ShopUp.Views.SignIn({
+    var signInView = new ShopUp.Views.LogIn({
       callback: callback
     });
 

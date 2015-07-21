@@ -1,9 +1,9 @@
-ShopUp.Views.SignIn = Backbone.View.extend({
+ShopUp.Views.LogIn = Backbone.View.extend({
 
-  template: JST['shared/sign_in'],
+  template: JST['shared/log_in'],
 
   events: {
-    'click button': 'submit'
+    'click .log-in': 'submit'
   },
 
   initialize: function (options) {
@@ -19,8 +19,7 @@ ShopUp.Views.SignIn = Backbone.View.extend({
 
   submit: function(event){
     event.preventDefault();
-    var $form = $(event.currentTarget);
-    var formData = $form.serializeJSON().user;
+    var formData = $('form').serializeJSON().user;
     var view = this
 
     ShopUp.currentUser.signIn({

@@ -7,7 +7,7 @@ ShopUp.Views.UserForm = Backbone.View.extend({
   },
 
   events: {
-    'submit .user-form': 'submit'
+    'click .sign-up': 'submit'
   },
 
   render: function () {
@@ -20,16 +20,14 @@ ShopUp.Views.UserForm = Backbone.View.extend({
 
   submit: function (event) {
     event.preventDefault();
-    var $form = $(event.currentTarget);
-    var attrs = $form.serializeJSON().user;
+    var attrs = $('.user-form').serializeJSON().user;
     var view = this
-    this.model.set(attrs);
-    this.model.save({},{
+    debugger;
+    this.model.save( attrs, {
       success: function () {
         ShopUp.currentUser.fetch();
         view.collection.add(view.model, { merge: true });
         Backbone.history.navigate('', { trigger: true });
-        console.log('no errors')
       },
       error: function(data) {
         console.log(data);
