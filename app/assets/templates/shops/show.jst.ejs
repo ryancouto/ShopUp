@@ -68,17 +68,30 @@
     </button>
   </p>
   <%  } %>
+
 <h2>Reviews</h2>
+
+<% if (ShopUp.currentUser.id !== shop.get('owner_id')) { %>
+
+  <div class='review-button'>
+    <button class="write-review">Write a Review</button>
+  </div>
+    <div class="review-form-insert"></div>
+
+<% } %>
+
 <% shop.reviews().forEach( function(review) { %>
 
   <%= review.get('title') %>
   <br>
   <%= review.get('body') %>
+  <br>
+    <a href="#/users/<%= review.get('user_id') %>">
+      User <%= review.get('user_id') %>
+    </a>
   <br><br>
 
 <% }) %>
-<div class='review-button'>
-  <button class="write-review">Write a Review</button>
-</div>
-  <div class="review-form-insert"></div>
+
+
 </p>

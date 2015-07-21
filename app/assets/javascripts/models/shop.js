@@ -1,6 +1,10 @@
 ShopUp.Models.Shop = Backbone.Model.extend({
   urlRoot: '/api/shops',
 
+  toJSON: function() {
+    return { shop: _.clone( this.attributes ) }
+  },
+
   reservations: function () {
     if (!this._reservations) {
       this._reservations = new ShopUp.Collections.Reservations([], { shop: this });

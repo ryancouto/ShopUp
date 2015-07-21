@@ -3,21 +3,42 @@ ShopUp.Models.User = Backbone.Model.extend({
   urlRoot: '/api/users',
 
   toJSON: function () {
-    var json = { user: _.clone(this.attributes) };
-    return json
+    return { user: _.clone(this.attributes) };
   },
 
   shops: function () {
     if (!this._shops) {
       this._shops = new ShopUp.Collections.Shops([], { user: this });
     }
-    return this._shops
+    return this._shops;
+  },
+
+  pendingReservations: function () {
+    if (!this._pendingReservations) {
+      this._pendingReservations = new ShopUp.Collections.Reservations([], { user: this });
+    }
+    return this._pendingReservations;
+  },
+
+  reservationRequests: function () {
+    if (!this._reservationRequests) {
+      this._reservationRequests = new ShopUp.Collections.Reservations([], { user: this });
+    }
+    return this._reservationRequests;
   },
 
   parse: function (response) {
     if (response.shops) {
       this.shops().set(response.shops, { parse: true });
       delete response.shops;
+    }
+    if (response.requested_reservations) {
+      this.reservationRequests().set(response.requested_reservations, { parse: true });
+      delete response.requested_reservations;
+    }
+    if (response.pending_reservations) {
+      this.pendingReservations().set(response.pending_reservations, { parse: true });
+      delete response.pending_reservations;
     }
     return response
   }

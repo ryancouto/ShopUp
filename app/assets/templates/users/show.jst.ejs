@@ -3,6 +3,7 @@
 <% } else { %>
   <h2><%= user.escape('email') %></h2>
 <% } %>
+<h2>Owned Shops</h2>
 <% user.shops().forEach( function (shop){ %>
 <p>
   <a href="#/shops/<%= shop.id %>">
@@ -10,3 +11,11 @@
   </a>
 </p>
 <% }) %>
+<% if (ShopUp.currentUser.id === user.id) { %>
+  <h2>Your Requested Reservations</h2>
+  <% user.reservationRequests().forEach( function (res) { %>
+    <%= res.get('shop_id') %>
+    <%= res.get('start_date') %> - <%= res.get('end_date') %>
+    <br>
+  <% }) %>
+<% } %>

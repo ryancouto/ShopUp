@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :logged_in?
 
-  # wrap_parameters(false)
+  wrap_parameters(false)
 
   private
   def current_user

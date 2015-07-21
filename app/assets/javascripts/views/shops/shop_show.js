@@ -3,12 +3,16 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
   template: JST['shops/show'],
 
   initialize: function (options) {
-    this.listenTo(this.model, 'sync', this.render);
     this.reservations = options.reservations;
     this.reviews = options.reviews;
+    this.users = options.users;
+    this.users.fetch();
+
+    this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.reservations, 'sync change add remove', this.render);
     this.listenTo(ShopUp.currentUser, 'sync add change remove', this.render);
     this.listenTo(this.reviews, 'sync add change remove', this.render);
+    this.listenTo(this.users, 'sync', this.render)
   },
 
   events: {
@@ -22,7 +26,8 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
 
   render: function () {
     var content = this.template({
-      shop: this.model
+      shop: this.model,
+      users: this.users
     });
     this.$el.html(content);
     this.createDatepicker();
