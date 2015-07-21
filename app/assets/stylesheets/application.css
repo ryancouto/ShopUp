@@ -79,6 +79,7 @@ img {
 .ui-widget-content {
   background: white;
   font-weight: bold;
+  vertical-align: left;
 }
 
 .login-links {

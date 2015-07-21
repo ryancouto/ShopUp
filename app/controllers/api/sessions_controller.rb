@@ -18,7 +18,7 @@ class Api::SessionsController < ApplicationController
 			login(@user)
 			render :show
 		else
-			render json: :unprocessable_entity
+			head :unprocessable_entity
 		end
 	end
 

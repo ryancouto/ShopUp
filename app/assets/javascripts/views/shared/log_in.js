@@ -19,13 +19,14 @@ ShopUp.Views.LogIn = Backbone.View.extend({
 
   submit: function(event){
     event.preventDefault();
-    var formData = $('form').serializeJSON().user;
+    var formData = $('.form-log-in').serializeJSON().user;
     var view = this
 
     ShopUp.currentUser.signIn({
       email: formData.email,
       password: formData.password,
       success: function () {
+        debugger
         $(view.$('input')).each( function() {
           $(this).val("");
         });
