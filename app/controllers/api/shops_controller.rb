@@ -2,7 +2,7 @@ class Api::ShopsController < ApplicationController
 
 	def search
 		@search_results = Shop
-			.search_by_city(params[:query])
+			.search_by_full_address(params[:query])
 		#.page(params[:page])
 		render :search
 	end

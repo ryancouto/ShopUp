@@ -21,7 +21,7 @@ ShopUp.Routers.Router = Backbone.Router.extend({
     'shops/search': 'shopSearch',
     'shops/:id': 'shopShow',
     'shops/:id/edit': 'shopEdit',
-    'search': 'search',
+    'search?query=:query': 'shopSearch',
 
     'res/new': 'resNew',
     'res/:id': 'resShow',
@@ -117,16 +117,9 @@ ShopUp.Routers.Router = Backbone.Router.extend({
     this._swapView(newView)
   },
 
-  shopSearch: function () {
-    this.shops.fetch();
-
-    var cands = []
-    this.shops.forEach( function (shop) {
-      // FILTER SEARCH
-    })
-
-    var searchView = new ShopUp.Views.ShopSearch({
-      collection: this.shops
+  shopSearch: function (query) {
+    var searchView = new ShopUp.Views.Search({
+      query: query
     });
 
     this._swapView(searchView);
@@ -151,12 +144,6 @@ ShopUp.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(editView);
-  },
-
-  search: function () {
-    var searchView = new ShopUp.Views.Search();
-
-    this._swapView(searchView);
   },
 
 //////////

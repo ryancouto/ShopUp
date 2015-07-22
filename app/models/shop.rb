@@ -16,7 +16,7 @@
 class Shop < ActiveRecord::Base
 
 	include PgSearch
-	pg_search_scope :search_by_city, against: :city
+	pg_search_scope :search_by_full_address, against: [:address, :city]
 
 	has_attached_file :image, default_url: "No-image-found.jpg"
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
@@ -34,9 +34,5 @@ class Shop < ActiveRecord::Base
 	has_many :reservations
 
 	has_many :reviews
-
-	def full_address
-		self.address + ', ' + self.city
-	end
-
+	
 end

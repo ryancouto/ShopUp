@@ -2,14 +2,16 @@ ShopUp.Views.Search = Backbone.View.extend({
 
   template: JST['shops/search'],
 
-  initialize: function () {
+  initialize: function (options) {
+    this.query = options.query
     this.searchResults = new ShopUp.Collections.SearchResults();
     this.searchResults.pageNum = 1;
     this.listenTo(this.searchResults, 'sync', this.render);
+    this.searchShops();
+
   },
 
   events: {
-    'click .searcher': 'search',
     'click .next-page': 'nextPage',
     'click .prev-page': 'prevPage'
   },
@@ -23,17 +25,13 @@ ShopUp.Views.Search = Backbone.View.extend({
     return this;
   },
 
-  search: function(event) {
-    event.preventDefault();
-    this.searchResults.pageNum = 1;
-    this.searchResults.query = this.$('.query').val();
+  searchShops: function() {
     that = this;
     this.searchResults.fetch({
       data: {
-        query: this.searchResults.query
+        query: that.query
       },
       success: function () {
-        debugger
       },
       error: function (data) {
         console.log(data)
