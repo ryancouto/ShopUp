@@ -2,10 +2,16 @@ ShopUp.Views.Header = Backbone.View.extend({
 
   initialize: function(options){
     this.listenTo(ShopUp.currentUser, "signIn signOut", this.render);
+    this.searchResults = new ShopUp.Collections.SearchResults();
+    this.listenTo(this.searchResults, 'sync', this.render);
+    this.searchResults = new ShopUp.Collections.SearchResults();
+    this.listenTo(this.searchResults, 'sync', this.search);
+
   },
 
   events: {
-    "click #sign-out-link": "signOut"
+    "click #sign-out-link": "signOut",
+    "click .search-button": 'search'
   },
 
   template: JST['shared/header'],
@@ -56,6 +62,12 @@ ShopUp.Views.Header = Backbone.View.extend({
     $( "#tags" ).autocomplete({
       source: availableTags
     });
+  },
+
+  search: function (event) {
+    event.preventDefault();
+    
+    Backbone.history.navigate('#/search', { trigger: true });
   }
 
 });

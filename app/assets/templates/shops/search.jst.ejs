@@ -1,0 +1,25 @@
+<h2>Search</h2>
+
+<label>
+	Query
+	<input type="text" class="query">
+</label>
+<button class="searcher">button</button>
+
+<section class="results">
+
+<nav>
+	Displaying page number <%= results.pageNum %> out
+	of <%= results.total_count %> results
+	<a class="prev-page" href="javascript:void(0)">Prev</a>
+	<a class="next-page" href="javascript:void(0)">Next</a>
+</nav>
+
+	<% results.each(function (result) { %>
+		<article>
+
+				<%= result.escape("address") %>
+
+		</article>
+	<% }) %>
+</section>

@@ -1,7 +1,10 @@
 class Api::ShopsController < ApplicationController
 
 	def search
-		@shops = Shop.all
+		@search_results = Shop
+			.search_by_city(params[:query])
+		#.page(params[:page])
+		render :search
 	end
 
 	def new

@@ -21,6 +21,7 @@ ShopUp.Routers.Router = Backbone.Router.extend({
     'shops/search': 'shopSearch',
     'shops/:id': 'shopShow',
     'shops/:id/edit': 'shopEdit',
+    'search': 'search',
 
     'res/new': 'resNew',
     'res/:id': 'resShow',
@@ -150,6 +151,12 @@ ShopUp.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(editView);
+  },
+
+  search: function () {
+    var searchView = new ShopUp.Views.Search();
+
+    this._swapView(searchView);
   },
 
 //////////

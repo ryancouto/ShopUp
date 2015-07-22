@@ -15,6 +15,9 @@
 
 class Shop < ActiveRecord::Base
 
+	include PgSearch
+	pg_search_scope :search_by_city, against: :city
+
 	has_attached_file :image, default_url: "No-image-found.jpg"
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
