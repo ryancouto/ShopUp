@@ -17,5 +17,6 @@ json.reviews @shop.reviews do |rev|
   json.username rev.user.fname
   json.title rev.title
   json.body rev.body
-  json.created_at rev.created_at 
+  json.created_at rev.created_at
 end
+json.image_url asset_path(@shop.image.url(:original))

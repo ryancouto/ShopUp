@@ -58,6 +58,6 @@ class Api::ShopsController < ApplicationController
 
 	private
 	def shop_params
-		params.require(:shop).permit(:owner_id, :address, :city, :description, :price, :size)
+		params.require(:shop).permit(:owner_id, :address, :city, :description, :price, :size, :image)
 	end
 end
