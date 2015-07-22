@@ -240,11 +240,15 @@ img {
 }
 
 a:hover {
-  opacity: 0.5;
+  opacity: 0.75;
 }
 
 .no-op:hover {
   opacity:1;
+}
+
+#last-row {
+  padding-bottom: 60px;
 }
 
 /* User-Show */
@@ -274,6 +278,10 @@ a:hover {
 }
 
 /* Shop Index */
-/*.index-img {
+.index-img {
   width: 200px;
-}*/
+}
+
+.shop-list {
+  padding: 40px;
+}

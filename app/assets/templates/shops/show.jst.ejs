@@ -25,13 +25,13 @@
 
         <% if (res.get('approved')) { %>
 
-          <button class="reject" data-id="<%= res.escape('id') %>">
+          <button class="reject" data-id="<%= res.get('id') %>">
             Reject Request
           </button>
 
         <% } else { %>
 
-          <button class="approve" data-id="<%= res.escape('id') %>">
+          <button class="approve" data-id="<%= res.get('id') %>">
             Approve Request
           </button>
 

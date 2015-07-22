@@ -5,15 +5,19 @@ json.city @shop.city
 json.description @shop.description
 json.price @shop.price
 json.size @shop.size
+json.latitude @shop.latitude
+json.longitude @shop.longitude
 json.created_at @shop.created_at
 json.updated_at @shop.updated_at
 json.reservations @shop.reservations do |res|
+  json.id res.id
   json.renter_id res.renter_id
   json.start_day res.start_day
   json.end_day res.end_day
   json.approved res.approved
 end
 json.reviews @shop.reviews do |rev|
+  json.id rev.id
   json.username rev.user.fname
   json.title rev.title
   json.body rev.body

@@ -1,3 +1,4 @@
+<div class='shop-list'>
 <% shops.forEach( function(shop) { %>
 <p>
   <a href="#/shops/<%= shop.id %>">
@@ -7,10 +8,10 @@
 <%= shop.escape('size') %> square feet, $<%= shop.escape('price') %>/day
 </p>
 <div class="index-img">
-  <%= shop.get('image_url') %>
   <img src="<%= shop.get('image_url') %>">
 </div>
 <br>
 <br>
 
 <% }); %>
+</div>

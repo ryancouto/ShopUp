@@ -5,6 +5,8 @@ json.array! @shops do |shop|
   json.description shop.description
   json.price shop.price
   json.size shop.size
+  json.latitude shop.latitude
+  json.longitude shop.longitude
   json.created_at shop.created_at
   json.updated_at shop.updated_at
   json.reservations shop.reservations do |res|
@@ -21,5 +23,3 @@ json.array! @shops do |shop|
   end
   json.image_url asset_path(shop.image.url(:original))
 end
-
-# json.array! shops, :id, :owner_id, :address, :city, :description, :price, :size, :created_at, :updated_at

@@ -20,6 +20,9 @@ class Shop < ActiveRecord::Base
 
 	validates :owner_id, :address, :city, :price, :size, presence: true
 
+	geocoded_by :full_address
+	after_validation :geocode
+
 	belongs_to :owner,
 		class: "User",
 		foreign_key: :owner_id,
@@ -28,5 +31,9 @@ class Shop < ActiveRecord::Base
 	has_many :reservations
 
 	has_many :reviews
+
+	def full_address
+		self.address + ', ' + self.city
+	end
 
 end

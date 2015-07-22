@@ -53,10 +53,46 @@
         <div class="res-req-info">
         <%= res.get('shop_id') %>
           <div class="res-dates">
-            <%= res.get('start_date') %> - <%= res.get('end_date') %>
+            <%= res.get('start_day') %> - <%= res.get('end_day') %>
           </div>
         </div>
       <% }) %>
     </div>
+
+    <div class="user-pen-res">
+      <h3 class="pen-res-header">
+        Your Pending Reservations
+      </h3>
+      <% user.pendingReservations().forEach( function (res) { %>
+        <% if (res.get('approved') === false) { %>
+        <a href="#/shops/<%= res.get('shop_id') %>">
+          <div class="pen-res-info">
+            <%= res.get('shop_id') %>
+          </div>
+          <div class="res-dates">
+            <%= res.get('start_day') %> - <%= res.get('end_day') %>
+          </div>
+        </a>
+        <% } %>
+      <% }) %>
+    </div>
+
+    <div class="user-appr-res">
+      <h3 class="appr-res-header">
+        Your Approved Reservations
+      </h3>
+      <% user.pendingReservations().forEach( function (res) { %>
+        <% if (res.get('approved') === true) { %>
+          <div class="pen-res-info">
+            <%= res.get('shop_id') %>
+          </div>
+          <div class="res-dates">
+            <%= res.get('start_day') %> - <%= res.get('end_day') %>
+          </div>
+        <% } %>
+      <% }) %>
+    </div>
+
+
   <% } %>
 </div>

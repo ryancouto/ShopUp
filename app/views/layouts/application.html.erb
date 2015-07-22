@@ -16,16 +16,18 @@
 
 <%= yield %>
 
-<div class="container">
 <div class="content">
 
 </div>
-</div>
+<script>
+  var sfImg = "<%= asset_path('SF.jpg') %>";
+  var parisImg = "<%= asset_path('paris.jpg') %>";
+  var nycImg = "<%= asset_path('nyc.jpg') %>";
+  var amstImg = "<%= asset_path('amsterdam.jpg') %>";
+  var romeImg = "<%= asset_path('rome.jpg') %>";
+  var laImg = "<%= asset_path('LA.jpg') %>";
+  var londImg = "<%= asset_path('london.jpg') %>";
+</script>
 
-<form action="/#/shops" method="GET">
-	<button>
-		Shops Index
-	</button>
-</form>
 </body>
 </html>
