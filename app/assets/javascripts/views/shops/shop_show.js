@@ -5,8 +5,6 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
   initialize: function (options) {
     this.reservations = options.reservations;
     this.reviews = options.reviews;
-    this.users = options.users;
-    this.users.fetch();
 
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.reservations, 'sync change add remove', this.render);
@@ -27,7 +25,6 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
   render: function () {
     var content = this.template({
       shop: this.model,
-      users: this.users
     });
     this.$el.html(content);
     this.createDatepicker();
@@ -52,7 +49,7 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
 
   submitRequest: function (event) {
     event.preventDefault();
-
+    debugger
     var view = this;
     var request = new ShopUp.Models.Reservation();
 
@@ -120,6 +117,7 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
   },
 
   insertReviewForm: function (event) {
+    debugger
     event.preventDefault();
     var $but = $('.review-button');
     $but.empty();

@@ -86,9 +86,15 @@
   <br>
   <%= review.get('body') %>
   <br>
-    <a href="#/users/<%= review.get('user_id') %>">
-      User <%= review.get('user_id') %>
-    </a>
+  <a href="#/users/<%= review.get('user_id') %>">
+    <%= review.get('username') %>
+  </a>
+  <br>
+  <% var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %>
+  <%= months[parseInt(review.get('created_at').slice(5,7)) - 1] %>
+  <%= review.get('created_at').slice(8,10) %>
+  <br>
+
   <br><br>
 
 <% }) %>
