@@ -151,6 +151,8 @@ img {
   opacity: 0.75
 }
 
+
+
 .logo {
   float: left;
   width: 115px;
@@ -284,4 +286,62 @@ a:hover {
 
 .shop-list {
   padding: 40px;
+}
+
+/* Shop Search */
+
+
+.search-pic {
+  width: 300px;
+}
+
+.search-address {
+  font-weight: bold;
+  position: relative;
+  bottom: 18px;
+}
+
+.search-desc {
+  position:relative;
+  bottom: 15px;
+}
+
+.results {
+  padding: 0 20px 20px 20px;
+}
+
+.result {
+  float: left;
+  width: 300px;
+  height: 500px;
+  margin: 40px;
+}
+
+.search-pic {
+  float: top;
+}
+
+.search-price {
+  position: relative;
+  display: inline-block;
+  bottom: 40px;
+  background: red;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  letter-spacing: 2px;
+}
+
+.search-size {
+  position:relative;
+  display: inline-block;
+  top: 40px;
+  left: 220px;
+  font-weight: bold;
+  background: white;
+}
+
+.search-page {
+  width: 1180px;
+  margin: 0 auto;
 }

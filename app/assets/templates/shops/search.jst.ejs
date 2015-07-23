@@ -1,19 +1,39 @@
-<h2>Search</h2>
+<div class="search-page">
 
-<section class="results">
-
-<nav>
-	Displaying page number <%= results.pageNum %> out
-	of <%= results.total_count %> results
-	<a class="prev-page" href="javascript:void(0)">Prev</a>
-	<a class="next-page" href="javascript:void(0)">Next</a>
-</nav>
+<section class="results group">
 
 	<% results.each(function (result) { %>
-		<article>
+		<a href="#/shops/<%= result.id %>">
+		<article class="result">
+			<div class="search-size">
+				<%= result.escape('size') %> sq ft
+			</div>
+			<div class='search-pic'>
+				<img src="<%= result.escape('image_url') %>">
+			</div>
+			<div class="search-price">
+				$<%= result.escape('price') %>
+			</div>
 
-				<%= result.escape("address") %>
+			<div class='search-address'>
+				<%= result.escape("address") %>, <%= result.escape('city') %>
+			</div>
+			<div class="search-desc">
+				<%= result.escape('description') %>
+			</div>
 
 		</article>
+	</a>
 	<% }) %>
 </section>
+</div>
+
+
+<% if (false) { %>
+	<nav>
+		Displaying page number <%= results.pageNum %> out
+		of <%= results.total_count %> results
+		<a class="prev-page" href="javascript:void(0)">Prev</a>
+		<a class="next-page" href="javascript:void(0)">Next</a>
+	</nav>
+<% } %>

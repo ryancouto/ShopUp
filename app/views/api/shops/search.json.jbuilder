@@ -1,4 +1,5 @@
 json.array! @search_results do |shop|
+  json.id shop.id
   json.owner_id shop.owner_id
   json.address shop.address
   json.city shop.city

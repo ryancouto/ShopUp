@@ -6,14 +6,15 @@ ShopUp.Views.Search = Backbone.View.extend({
     this.query = options.query
     this.searchResults = new ShopUp.Collections.SearchResults();
     this.searchResults.pageNum = 1;
+    this.listenTo(this.searchResults, 'sync', this.mapGoogle);
     this.listenTo(this.searchResults, 'sync', this.render);
     this.searchShops();
 
   },
 
   events: {
-    'click .next-page': 'nextPage',
-    'click .prev-page': 'prevPage'
+    // 'click .next-page': 'nextPage',
+    // 'click .prev-page': 'prevPage'
   },
 
   render: function () {
@@ -38,6 +39,24 @@ ShopUp.Views.Search = Backbone.View.extend({
       }
     });
   },
+
+  // mapGoogle: function () {
+  //   var that = this;
+  //   this.searchResults.forEach( function (result) {
+  //     var myLatlng = new google.maps.LatLng(result.get('latitude'),result.get('longitude'));
+  //     var mapOptions = {
+  //       zoom: 4,
+  //       center: myLatlng
+  //     }
+  //
+  //     var marker = new google.maps.Marker({
+  //         position: myLatlng,
+  //         title:"Hello World!"
+  //     });
+  //     marker.setMap(that.map);
+  //   });
+  // },
+
 
   handleScroll: function (event) {
 		var $doc = $(document);
