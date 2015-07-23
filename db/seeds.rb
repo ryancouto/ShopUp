@@ -118,22 +118,23 @@ user1 = User.find(1)
 user2 = User.find(2)
 
 150.times do
-	Reservation.create(
-	approved: false,
-	owner_id: 1,
-	renter_id: Faker::Number.between(2, 50),
-	shop_id: user1.shops.sample.id,
-	start_day: Date.new(Faker::Number.between(2015, 2016), Faker::Number.between(1,12), Faker::Number.between(1,20)),
-	end_day: Date.new(Faker::Number.between(2017, 2018), Faker::Number.between(1,12), Faker::Number.between(1,20)),
-	)
+
+def paramz
+	shop_id = Faker::Number.between(1, 120)
+	shop = Shop.find(shop_id)
+	owner_id = (shop.owner_id)
+	renter_id = Faker::Number.between(1,50)
+	return [shop_id, owner_id, renter_id] unless renter_id == owner_id
+	return paramz
 end
 
-150.times do
+x = paramz
+
 	Reservation.create(
 	approved: false,
-	owner_id: 2,
-	renter_id: Faker::Number.between(3, 50),
-	shop_id: user2.shops.sample.id,
+	owner_id: x[1],
+	renter_id: x[2],
+	shop_id: x[0],
 	start_day: Date.new(Faker::Number.between(2015, 2016), Faker::Number.between(1,12), Faker::Number.between(1,20)),
 	end_day: Date.new(Faker::Number.between(2017, 2018), Faker::Number.between(1,12), Faker::Number.between(1,20)),
 	)
@@ -141,9 +142,9 @@ end
 
 300.times do
 	Review.create(
-	shop_id: (1..60).to_a.sample,
+	shop_id: (1..120).to_a.sample,
 	user_id: (1..50).to_a.sample,
-	title: Faker::Hacker.adjective,
-	body: Faker::Hacker.say_something_smart
+	title: Faker::Lorem.paragraph(1),
+	body: Faker::Lorem.paragraph(6)
 	)
 end

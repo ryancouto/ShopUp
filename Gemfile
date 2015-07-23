@@ -1,25 +1,23 @@
 source 'https://rubygems.org'
 
 gem 'annotate'
-
+gem 'aws-sdk', '~> 1.6'
 gem 'bcrypt'
 gem 'backbone-on-rails'
 gem 'coffee-rails', '~> 4.1.0'
+gem 'ejs'
 gem 'faker'
+gem 'figaro'
 gem 'geocoder'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
+gem 'paperclip'
 gem 'pg'
 gem 'pg_search'
 gem 'rails', '4.2.1'
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'ejs'
-gem 'figaro'
-gem 'paperclip'
 gem 'spring'
-  gem 'aws-sdk', '~> 1.6'
-
+gem 'uglifier', '>= 1.3.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
