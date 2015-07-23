@@ -110,8 +110,8 @@ img {
 .user-info > a {
   float: left;
   font-weight: bold;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 11px;
+  padding-bottom: 11px;
   margin-right: 20px;
 }
 
@@ -125,17 +125,19 @@ img {
 
 .search-bar {
   display: inline;
-  padding-left: 38px;
-  margin: 0 auto;
+  text-align: center;
+  padding-left: 198px;
 }
 
 .search-bar > input {
   padding: 10px;
+  padding-top: 11px;
   border: 1px #aaa solid;
 }
 
 .search-bar > button {
   padding: 10px;
+  padding-top: 11px;
   border: 1px #aaa solid;
   color: white;
   font-weight: bold;
@@ -151,9 +153,7 @@ img {
 
 .logo {
   float: left;
-  padding-right: 40px;
-  padding-left: 20px;
-  width: 105px;
+  width: 115px;
 }
 
 .search-text {

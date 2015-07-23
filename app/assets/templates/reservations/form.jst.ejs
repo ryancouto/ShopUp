@@ -1,3 +1,5 @@
+<% if (ShopUp.currentUser.id === reservation.get('user_id')) { %>
+
 <form class="reservation-form">
 
 	<label>
@@ -13,3 +15,5 @@
 	<button class="res-form-button">Submit</button>
 
 </form>
+
+<% } %>

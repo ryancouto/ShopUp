@@ -23,7 +23,6 @@ ShopUp.Routers.Router = Backbone.Router.extend({
     'shops/:id/edit': 'shopEdit',
     'search?query=:query': 'shopSearch',
 
-    'res/new': 'resNew',
     'res/:id': 'resShow',
     'res/:id/edit': 'resEdit'
   },
@@ -147,16 +146,6 @@ ShopUp.Routers.Router = Backbone.Router.extend({
   },
 
 //////////
-
-  resNew: function () {
-    var newRes = new ShopUp.Models.Reservation();
-    var newView = new ShopUp.Views.ResForm({
-      collection: this.reservations,
-      model: newRes
-    });
-
-    this._swapView(newView);
-  },
 
   resShow: function (id) {
     var showRes = this.reservations.getOrFetch(id);

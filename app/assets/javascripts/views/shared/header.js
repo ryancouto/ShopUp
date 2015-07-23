@@ -37,22 +37,19 @@ ShopUp.Views.Header = Backbone.View.extend({
 
   autoCompleter: function() {
     var availableTags = [
-      "New York City",
-      "San Francisco",
+      "New York",
       "Brooklyn",
+      "San Francisco",
       "Oakland",
       "Los Angeles",
       "London",
       "Paris",
-      "Tokyo",
-      "Chicago",
-      "Berlin",
-      "Copenhagen",
+      // "Tokyo",
+      // "Chicago",
+      // "Berlin",
+      // "Copenhagen",
       "Amsterdam",
-      "Philadelphia",
-      "Miami",
-      "Boston",
-      "Montreal"
+      "Rome"
     ];
     $( "#tags" ).autocomplete({
       source: availableTags

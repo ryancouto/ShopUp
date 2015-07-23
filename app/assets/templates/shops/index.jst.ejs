@@ -1,7 +1,7 @@
 <div class='shop-list'>
 <% shops.forEach( function(shop) { %>
 <p>
-  <a href="#/shops/<%= shop.id %>">
+  <a href="#/shops/<%= shop.get('id') %>">
 <%= shop.escape('address') %>, <%= shop.escape('city') %>
 </a>
 <br>

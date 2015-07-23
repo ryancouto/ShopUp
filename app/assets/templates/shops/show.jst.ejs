@@ -3,7 +3,10 @@
   <%= shop.escape('address') %>, <%= shop.escape('city') %>
   <br>
   <%= shop.escape('size') %> square feet, $<%= shop.escape('price') %>/day
+  <br>
+  <%= shop.escape('description') %>
 </p>
+
   <div class="shop-img">
     <img src="<%= shop.escape('image_url') %>">
   </div>
