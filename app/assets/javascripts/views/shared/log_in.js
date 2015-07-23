@@ -3,7 +3,8 @@ ShopUp.Views.LogIn = Backbone.View.extend({
   template: JST['shared/log_in'],
 
   events: {
-    'click .log-in': 'submit'
+    'click .log-in': 'submit',
+    'click #twitter-login': 'oAuthLogin'
   },
 
   initialize: function (options) {
@@ -15,6 +16,12 @@ ShopUp.Views.LogIn = Backbone.View.extend({
     this.$el.html(this.template());
 
     return this;
+  },
+
+  oAuthLogin: function(event){
+    event.preventDefault();
+    debugger
+    window.location = '/auth/google_oauth2/';
   },
 
   submit: function(event){
