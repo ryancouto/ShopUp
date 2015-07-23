@@ -51,7 +51,7 @@ end
 20.times do
 	Shop.create(
 	owner_id: [4,9,14,19,24,29,34,39,44,49].sample,
-	address: (100..2000).to_a.sample.to_s + ', ' + ['Powell St', 'Geary Blvd', 'Market St'],
+	address: (100..2000).to_a.sample.to_s + ', ' + ['Powell St', 'Geary Blvd', 'Market St'].sample,
 	city: "San Francisco",
 	description: Faker::Lorem.paragraph(6),
 	price: Faker::Number.number(3),
@@ -62,7 +62,7 @@ end
 20.times do
 	Shop.create(
 	owner_id: [4,9,14,19,24,29,34,39,44,49].sample,
-	address: (800..4000).to_a.sample.to_s + ', ' + ['International Blvd', 'MacArthur Blvd', 'Broadway'],
+	address: (800..4000).to_a.sample.to_s + ', ' + ['International Blvd', 'MacArthur Blvd', 'Broadway'].sample,
 	city: "Oakland",
 	description: Faker::Lorem.paragraph(6),
 	price: Faker::Number.number(3),
@@ -73,7 +73,7 @@ end
 20.times do
 	Shop.create(
 	owner_id: [4,9,14,19,24,29,34,39,44,49].sample,
-	address: (10000..30000).to_a.sample.to_s + ', ' + ['Ventura Blvd', 'Sepulveda Blvd', 'Mulholland Dr'],
+	address: (10000..30000).to_a.sample.to_s + ', ' + ['Ventura Blvd', 'Sepulveda Blvd', 'Mulholland Dr'].sample,
 	city: 'Los Angeles',
 	description: Faker::Lorem.paragraph(6),
 	price: Faker::Number.number(3),
