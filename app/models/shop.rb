@@ -34,5 +34,9 @@ class Shop < ActiveRecord::Base
 	has_many :reservations
 
 	has_many :reviews
-	
+
+	def full_address
+		self.address + ', ' + self.city
+	end
+
 end
