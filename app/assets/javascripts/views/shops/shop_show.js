@@ -49,7 +49,6 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
 
   submitRequest: function (event) {
     event.preventDefault();
-    debugger
     var view = this;
     var request = new ShopUp.Models.Reservation();
 

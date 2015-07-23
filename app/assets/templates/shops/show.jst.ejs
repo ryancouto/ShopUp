@@ -1,78 +1,74 @@
-<div class="info">
-<p>
-  <img src="<%= shop.escape('image_url') %>">
-  <%= shop.escape('address') %>, <%= shop.escape('city') %>
-  <br>
-  <%= shop.escape('size') %> square feet, $<%= shop.escape('price') %>/day
-  <br>
-  <%= shop.escape('description') %>
-</p>
+<div class="shop-show">
 
-</div>
-<br>
-<p>
+  <div class="shop-img">
+    <img src="<%= shop.escape('image_url') %>">
+  </div>
+
+  <div class="shop-info">
+    <%= shop.escape('address') %>, <%= shop.escape('city') %>
+    <%= shop.escape('size') %> square feet, $<%= shop.escape('price') %>/day
+    <%= shop.escape('description') %>
+  </div>
+
+
   <% if (shop.get('owner_id') === ShopUp.currentUser.get('id')) { %>
-
+    <div class="res-info">
     <% shop.reservations().forEach( function(res) { %>
-      <p>
         <% var renter = res.get('renter_id') %>
-
         <%= res.escape('start_day') %> - <%= res.escape('end_day') %>
-        <br>
         <%= renter %>
-        <br>
         Approved: <%= res.escape('approved') %>
-        <br>
-
         <% if (res.get('approved')) { %>
-
           <button class="reject" data-id="<%= res.get('id') %>">
             Reject Request
           </button>
-
         <% } else { %>
-
           <button class="approve" data-id="<%= res.get('id') %>">
             Approve Request
           </button>
-
         <% } %>
-
         <button class="delete-request" data-id="<%= res.escape('id') %>">
           Delete Request
         </button>
-
-        <br>
-        <br>
-
-      </p>
-
     <% }) %>
+  </div>
+
 
   <% } else if (ShopUp.currentUser.id) { %>
-    <h3>Pending Reservations</h3>
-   <% shop.reservations().forEach( function (res) { %>
-     <% if (ShopUp.currentUser.get('id') === res.get('renter_id')) { %>
-       <%= res.escape('start_day') %> - <%= res.escape('end_day') %>
-       <br>
-       Approved: <%= res.escape('approved') %>
-       <br><br>
-     <% } %>
-   <% }) %>
-   <p>
+    <div class="request-info group">
+      <h3>Your Reservation Requests</h3>
+      <% var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] %>
+        <% shop.reservations().forEach( function (res) { %>
+          <% if (ShopUp.currentUser.get('id') === res.get('renter_id')) { %>
+          <div class="req-info group">
+            <div class="res-dates">
 
+              <% var start_month = months[parseInt(res.escape('start_day').slice(6,8)) - 1] %>
+              <% var end_month = months[parseInt(res.escape('end_day').slice(6,8)) - 1] %>
 
+              <%= start_month %> <%= parseInt(res.escape('start_day').slice(5,7)) %>, <%= res.escape('start_day').slice(0,4) %>
+              -
+              <%= end_month %> <%= parseInt(res.escape('end_day').slice(5,7)) %>, <%= res.escape('end_day').slice(0,4) %>
+            </div>
+            <div class="approval">
+              Approved: <%= res.escape('approved') %>
+            </div>
+          </div>
 
-    <p>Start Date: <input type="text" id="datepicker3"></p>
-
-    <p>End Date: <input type="text" id="datepicker4"></p>
-
+          <% } %>
+        <% }); %>
+        <div class="request-dates">
+    Start Date: <input type="text" id="datepicker3">
+    End Date: <input type="text" id="datepicker4">
+  </div>
     <button class="request-button">
       Request Reservation
     </button>
-  </p>
+    </div>
   <%  } %>
 
+
+<div class="review-info">
 <h2>Reviews</h2>
 
 <% if (ShopUp.currentUser.id !== shop.get('owner_id')) { %>
@@ -102,6 +98,5 @@
   <br><br>
 
 <% }) %>
-
-
-</p>
+</div>
+</div>

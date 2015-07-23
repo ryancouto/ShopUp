@@ -275,12 +275,65 @@ a:hover {
 }
 
 /* Shop Show */
-.shop-img {
-  width: 400px;
+.shop-show {
+  width: 1100px;
+  margin: 0 auto;
 }
+
+.shop-info {
+  width: 50%;
+  background: red;
+  display: inline-block;
+}
+
+.res-info {
+  width:50%;
+  float:right;
+  background: yellow;
+}
+
+.request-info {
+  width:50%;
+  float:right;
+  background: green;
+}
+
+.req-info {
+  display: block;
+}
+
+.res-dates {
+  float: left;
+}
+
+.approval {
+  float: right;
+}
+
+.request-dates {
+  padding: 20px;
+}
+
+.request-button {
+  padding: 10px;
+  margin-left: 235px;
+}
+
+.review-info {
+  background: blue;
+  float:left;
+  width: 50%;
+}
+
+.ui-icon-circle-triangle-w {
+  color: black;
+}
+
+
 
 /* Shop Index */
 .index-img {
+
   width: 200px;
 }
 
@@ -317,9 +370,7 @@ a:hover {
   margin: 40px;
 }
 
-.search-pic {
-  float: top;
-}
+
 
 .search-price {
   position: relative;
@@ -338,7 +389,7 @@ a:hover {
   top: 40px;
   left: 220px;
   font-weight: bold;
-  background: white;
+
 }
 
 .search-page {
