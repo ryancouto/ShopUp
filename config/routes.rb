@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resource :session, only: [:new, :show, :create, :destroy]
   end
 
-  get "/auth/google_oauth2/", to: "sessions#omniauth"
+  get "/auth/google_oauth2/callback/", to: "sessions#omniauth"
 
 
 end

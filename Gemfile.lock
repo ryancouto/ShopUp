@@ -220,7 +220,7 @@ DEPENDENCIES
   geocoder
   jbuilder (~> 2.0)
   jquery-rails
-  omniauth (~> 1.2.2)
+  omniauth
   omniauth-google-oauth2
   paperclip
   pg
