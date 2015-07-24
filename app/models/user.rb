@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
 					 uid: auth_hash[:uid],
 					 fname: auth_hash[:info][:name].split.first,
 					 lname: auth_hash[:info][:name].split.last,
-					 email: auth_hash[:info][:email] || auth_hash[:info][:nickname],
+					 email: auth_hash[:info][:email],
 					 password: SecureRandom::urlsafe_base64)
 		end
 		user
