@@ -6,7 +6,8 @@ ShopUp.Views.Header = Backbone.View.extend({
 
   events: {
     "click #sign-out-link": "signOut",
-    "click .search-button": 'search'
+    "click .search-button": 'search',
+    "click #new-shop": 'postShop'
   },
 
   template: JST['shared/header'],
@@ -61,6 +62,15 @@ ShopUp.Views.Header = Backbone.View.extend({
     var query = this.$('.search-text').val();
     that = this;
     Backbone.history.navigate('#/search?query=' + query, { trigger: true });
+  },
+
+  postShop: function(event) {
+    event.preventDefault();
+    if (ShopUp.currentUser.get('fname') == $('.current-user').text().replace(/ /g,'')) {
+      Backbone.history.navigate('#/shops/new', { trigger: true} );
+    } else {
+      alert ('You must be logged in to post a shop')
+    }
   }
 
 });

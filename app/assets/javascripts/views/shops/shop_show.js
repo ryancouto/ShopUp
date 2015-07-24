@@ -117,7 +117,7 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
     var $but = $('.review-button');
     $but.empty();
     var $div = $('.review-form-insert')
-    $div.html("<form class='review-form'><input type='text' name='review[title]' placeholder='title' class='review-title'><input type='string' name='review[body]' placeholder='write your review here' class='review-body'><button class='review-form-submit'>Post Review</button></form>");
+    $div.html("<form class='review-form'><input type='text' name='review[title]' placeholder='Title' class='review-title'><input type='string' name='review[body]' placeholder='Write your review here' class='review-body'><button class='review-form-submit'>Post Review</button></form>");
   },
 
   submitReview: function (event) {

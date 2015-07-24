@@ -6,6 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.create(
+	email: 'guest@gmail.com',
+	fname: 'Guest',
+	lname: 'User',
+	password: 'password'
+)
+
 50.times do
 	User.create(
 	email: Faker::Internet.email,
@@ -15,10 +22,10 @@
 	)
 end
 ########
-20.times do
+30.times do
 	Shop.create(
-	owner_id: [5,10,15,20,25,30,35,40,45,50].sample,
-	address: (100..1800).to_a.sample.to_s + ' ' + ['Broadway Ave', 'Amsterdam Ave', 'Park Ave', 'Madison Ave'].sample,
+	owner_id: (1..51).to_a.sample,
+	address: (100..1800).to_a.sample.to_s + ' ' + ['Broadway Avenue', 'Amsterdam Avenue', 'Park Avenue', 'Madison Avenue'].sample,
 	city: "New York",
 	description: Faker::Lorem.paragraph(6),
 	price: Faker::Number.number(3),
@@ -26,10 +33,10 @@ end
 	)
 end
 
-20.times do
+30.times do
 	Shop.create(
-	owner_id: [5,10,15,20,25,30,35,40,45,50].sample,
-	address: (100..1800).to_a.sample.to_s + ' ' + ['Broadway', 'Atlantic Ave', 'Bushwick Ave'].sample,
+	owner_id: (1..51).to_a.sample,
+	address: (100..1800).to_a.sample.to_s + ' ' + ['Broadway', 'Atlantic Avenue', 'Bushwick Avenue', 'Bedford Avenue', 'Manhattan Avenue'].sample,
 	city: "Brooklyn",
 	description: Faker::Lorem.paragraph(6),
 	price: Faker::Number.number(3),
@@ -37,10 +44,10 @@ end
 	)
 end
 
-20.times do
+30.times do
 	Shop.create(
-	owner_id: [5,10,15,20,25,30,35,40,45,50].sample,
-	address: (100..350).to_a.sample.to_s + ' ' + ['A3', 'A4', 'A5', 'A6'].sample,
+	owner_id: (1..51).to_a.sample,
+	address: (100..350).to_a.sample.to_s + ' ' + ['Oxford Street', 'Regent Street', 'Carnaby Street', "King's Road", 'Kensington', 'Camden Town'].sample,
 	city: "London",
 	description: Faker::Lorem.paragraph(6),
 	price: Faker::Number.number(3),
@@ -48,10 +55,10 @@ end
 	)
 end
 #################
-20.times do
+30.times do
 	Shop.create(
-	owner_id: [4,9,14,19,24,29,34,39,44,49].sample,
-	address: (100..2000).to_a.sample.to_s + ' ' + ['Powell St', 'Geary Blvd', 'Market St'].sample,
+	owner_id: (1..51).to_a.sample,
+	address: (100..2000).to_a.sample.to_s + ' ' + ['Powell Street', 'Geary Boulevard', 'Market Street', 'Fillmore Street', 'Mission Boulevard', 'Haight Street', 'Ashbury Street', 'Divisadero Street'].sample,
 	city: "San Francisco",
 	description: Faker::Lorem.paragraph(6),
 	price: Faker::Number.number(3),
@@ -59,10 +66,10 @@ end
 	)
 end
 
-20.times do
+30.times do
 	Shop.create(
-	owner_id: [4,9,14,19,24,29,34,39,44,49].sample,
-	address: (800..4000).to_a.sample.to_s + ' ' + ['International Blvd', 'MacArthur Blvd', 'Broadway'].sample,
+	owner_id: (1..51).to_a.sample,
+	address: (800..4000).to_a.sample.to_s + ' ' + ['International Boulevard', 'MacArthur Boulevard', 'Broadway'].sample,
 	city: "Oakland",
 	description: Faker::Lorem.paragraph(6),
 	price: Faker::Number.number(3),
@@ -70,10 +77,10 @@ end
 	)
 end
 
-20.times do
+30.times do
 	Shop.create(
-	owner_id: [4,9,14,19,24,29,34,39,44,49].sample,
-	address: (10000..30000).to_a.sample.to_s + ' ' + ['Ventura Blvd', 'Sepulveda Blvd', 'Mulholland Dr'].sample,
+	owner_id: (1..51).to_a.sample,
+	address: (10000..30000).to_a.sample.to_s + ' ' + ['Ventura Boulevard', 'Sepulveda Boulevard', 'Mulholland Drive', 'Rodeo Drive', 'Santa Monica Boulevard', 'Sunset Boulevard', 'Hollywood Boulevard'].sample,
 	city: 'Los Angeles',
 	description: Faker::Lorem.paragraph(6),
 	price: Faker::Number.number(3),
@@ -83,47 +90,53 @@ end
 
 ################
 
-# 20.times do
-# 	Shop.create(
-# 	owner_id: [3,8,13,18,23,28,33,38,43,48].sample,
-# 	address:
-# 	city: "Paris",
-# 	description: Faker::Lorem.paragraph(6),
-# 	price: Faker::Number.number(3),
-# 	size: Faker::Number.number(4),
-# 	)
-# end
-#
-# #############
-#
-# 20.times do
-# 	Shop.create(
-# 	owner_id: [2,7,12,17,22,27,32,37,42,47].sample
-# 	address:
-# 	city: "Amsterdam"
-# 	)
-# end
-#
-# ##############
-#
-# 20.times do
-# 	Shop.create(
-# 	owner_id: [1,6,11,16,21,26,31,36,41,46].sample
-# 	address:
-# 	city: "Rome"
-# 	)
-# end
+30.times do
+	Shop.create(
+	owner_id: (1..51).to_a.sample,
+	address: (100..1500).to_a.sample.to_s + ' ' + ["Avenue des Champs Elysées", "Rue de Passy", "Rue de Rennes", "Boulevard Haussmann", "Avenue Montaigne", "Rue de Rivoli-Le Marais"].sample,
+	city: "Paris",
+	description: Faker::Lorem.paragraph(6),
+	price: Faker::Number.number(3),
+	size: Faker::Number.number(4)
+	)
+end
+
+#############
+
+30.times do
+	Shop.create(
+	owner_id: (1..51).to_a.sample,
+	address: (1..1000).to_a.sample.to_s + ' ' + ["Kalverstaat", "Leidsestraat", "P.C.Hooftstraat", "Cornelis Schuytstraat", "Utrechtsestraat", "Beethovenstraat"].sample,
+	city: "Amsterdam",
+	description: Faker::Lorem.paragraph(6),
+	price: Faker::Number.number(3),
+	size: Faker::Number.number(4)
+	)
+end
+
+##############
+
+30.times do
+	Shop.create(
+	owner_id: (1..51).to_a.sample,
+	address: (1..1000).to_a.sample.to_s + ' ' + ["Via Condotti", "Via Borgogonona", "Via Frattina", "Via del Corso", "Via Cola di Rienzo", "Via Ottaviano", "Viale Giulio Cesare"].sample,
+	city: "Rome",
+	description: Faker::Lorem.paragraph(6),
+	price: Faker::Number.number(3),
+	size: Faker::Number.number(4)
+	)
+end
 
 user1 = User.find(1)
 user2 = User.find(2)
 
-150.times do
+600.times do
 
 def paramz
-	shop_id = Faker::Number.between(1, 120)
+	shop_id = Faker::Number.between(1, 270)
 	shop = Shop.find(shop_id)
 	owner_id = (shop.owner_id)
-	renter_id = Faker::Number.between(1,50)
+	renter_id = Faker::Number.between(1,51)
 	return [shop_id, owner_id, renter_id] unless renter_id == owner_id
 	return paramz
 end
@@ -140,10 +153,10 @@ x = paramz
 	)
 end
 
-300.times do
+600.times do
 	Review.create(
-	shop_id: (1..120).to_a.sample,
-	user_id: (1..50).to_a.sample,
+	shop_id: (1..270).to_a.sample,
+	user_id: (1..51).to_a.sample,
 	title: Faker::Lorem.word,
 	body: Faker::Lorem.paragraph(6)
 	)

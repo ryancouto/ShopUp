@@ -4,7 +4,8 @@ ShopUp.Views.LogIn = Backbone.View.extend({
 
   events: {
     'click .log-in': 'submit',
-    'click #twitter-login': 'oAuthLogin'
+    'click #twitter-login': 'oAuthLogin',
+    'click .guest': 'guestLogin'
   },
 
   initialize: function (options) {
@@ -42,6 +43,23 @@ ShopUp.Views.LogIn = Backbone.View.extend({
       }
     });
   },
+
+  guestLogin: function () {
+    event.preventDefault();
+
+    var view = this
+
+    ShopUp.currentUser.signIn({
+      email: 'guest@gmail.com',
+      password: 'password',
+      success: function () {
+        Backbone.history.navigate('/#', { trigger: true })
+      },
+      error: function(){
+        alert("Wrong username/password combination. Please try again.");
+      }
+    });
+  }
 
   // signInCallback: function(event){
   //   if(this.callback) {

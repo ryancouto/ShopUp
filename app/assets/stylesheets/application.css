@@ -338,6 +338,7 @@ a:hover {
 }
 
 .shop-show-desc {
+  text-align: center;
 }
 
 .res-info {
@@ -400,7 +401,7 @@ a:hover {
   border: 1px grey solid;
   border-radius: 10px;
   padding: 0 4px 0 4px;
-  margin: 20px 0 20px 0;
+  margin: 10px 0 20px 0;
 }
 
 .request-yo {
@@ -457,13 +458,29 @@ a:hover {
   border: 1px grey solid;
   border-radius: 10px;
   padding: 0 4px 5px 4px;
-  margin: 20px 4px 20px 0;
+  margin: 10px 4px 20px 0;
 }
 
 .review-button {
   padding: 5px;
 }
 
+.review-form input{
+  display: block;
+  padding: 10px;
+  border: 1px grey solid;
+  margin: 0 10px 5px;
+  width: 438px;
+}
+
+.review-form button {
+  margin-left: 10px;
+}
+
+
+.review-body {
+  height: 100px;
+}
 .req-name-date {
   display: inline-block;
   padding-left: 4px;
@@ -506,14 +523,14 @@ a:hover {
 }
 
 .results {
-  padding: 0 20px 20px 20px;
+  padding: 0 20px;
   background: white;
 }
 
 .result {
   float: left;
   width: 300px;
-  height: 500px;
+  height: 400px;
   margin: 40px;
 }
 
