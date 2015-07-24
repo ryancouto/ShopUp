@@ -72,7 +72,7 @@ end
 end
 
 shop = Shop.new(
-		owner_id: 1
+		owner_id: 1,
 		address: (100..2000).to_a.sample.to_s + ' ' + ['Powell Street', 'Geary Boulevard', 'Market Street', 'Fillmore Street', 'Mission Boulevard', 'Haight Street', 'Ashbury Street', 'Divisadero Street'].sample,
 		city: "San Francisco",
 		description: Faker::Lorem.paragraph(6),
