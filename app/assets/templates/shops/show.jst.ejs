@@ -3,21 +3,56 @@
   <div class="shop-img">
     <img src="<%= shop.escape('image_url') %>">
   </div>
+  <span id="shop-show-price">
+    $<%= shop.escape('price') %>/day
+  </span>
+  <span id="shop-show-size">
+    <%= shop.escape('size') %> square feet
+  </span>
 
   <div class="shop-info">
-    <<%= shop.escape('address') %>, <%= shop.escape('city') %>
-    <%= shop.escape('size') %> square feet, $<%= shop.escape('price') %>/day
-    <%= shop.escape('description') %>
+    <div class="shop-show-address">
+      <%= shop.escape('address') %>, <%= shop.escape('city') %>
+    </div>
+    <div class="shop-show-desc">
+      <%= shop.escape('description') %>
+    </div>
   </div>
 
 
   <% if (shop.get('owner_id') === ShopUp.currentUser.get('id')) { %>
-    <div class="res-info">
+
+    <div class="request-info">
+      <h3 class="res-header">
+        Requests
+      </h3>
+
     <% shop.reservations().forEach( function(res) { %>
-        <% var renter = res.get('renter_id') %>
-        <%= res.escape('start_day') %> - <%= res.escape('end_day') %>
-        <%= renter %>
-        Approved: <%= res.escape('approved') %>
+      <div class="request-yo">
+      <div class="req-name-date">
+      <a href="#/users/<%=res.get('renter_id') %>">
+        <b><%= res.get('renter_name') %> <%= res.get('renter_lname') %></b>
+      </a>
+      <br>
+        <% var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] %>
+
+        <% var start_month = months[parseInt(res.escape('start_day').slice(6,8)) - 1] %>
+        <% var end_month = months[parseInt(res.escape('end_day').slice(6,8)) - 1] %>
+
+        <%= start_month %> <%= parseInt(res.escape('start_day').slice(8,10)) %>, <%= res.escape('start_day').slice(0,4) %>
+        -
+        <%= end_month %> <%= parseInt(res.escape('end_day').slice(8,10)) %>, <%= res.escape('end_day').slice(0,4) %>
+      </div>
+
+        <div class="approval">
+          <% if (res.get('approved')) { %>
+            Approved
+          <% } else { %>
+            Pending
+          <% } %>
+        </div>
+
+        <div class="res-buttons group">
         <% if (res.get('approved')) { %>
           <button class="reject" data-id="<%= res.get('id') %>">
             Reject Request
@@ -30,36 +65,46 @@
         <button class="delete-request" data-id="<%= res.escape('id') %>">
           Delete Request
         </button>
+      </div>
+    </div>
+
     <% }) %>
   </div>
 
 
+
   <% } else if (ShopUp.currentUser.id) { %>
     <div class="request-info group">
-      <h3>Your Reservation Requests</h3>
+      <h3 class="res-header">Your Reservation Requests</h3>
       <% var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] %>
         <% shop.reservations().forEach( function (res) { %>
+
           <% if (ShopUp.currentUser.get('id') === res.get('renter_id')) { %>
+
           <div class="req-info group">
             <div class="res-dates">
 
               <% var start_month = months[parseInt(res.escape('start_day').slice(6,8)) - 1] %>
               <% var end_month = months[parseInt(res.escape('end_day').slice(6,8)) - 1] %>
 
-              <%= start_month %> <%= parseInt(res.escape('start_day').slice(5,7)) %>, <%= res.escape('start_day').slice(0,4) %>
+              <%= start_month %> <%= parseInt(res.escape('start_day').slice(8,10)) %>, <%= res.escape('start_day').slice(0,4) %>
               -
-              <%= end_month %> <%= parseInt(res.escape('end_day').slice(5,7)) %>, <%= res.escape('end_day').slice(0,4) %>
+              <%= end_month %> <%= parseInt(res.escape('end_day').slice(8,10)) %>, <%= res.escape('end_day').slice(0,4) %>
             </div>
-            <div class="approval">
-              Approved: <%= res.escape('approved') %>
+            <div class="approval-status">
+              <% if (res.escape('approved') === true) { %>
+                Approved
+              <% } else { %>
+                Pending Approval
+              <% } %>
             </div>
           </div>
 
           <% } %>
         <% }); %>
-        <div class="request-dates">
-    Start Date: <input type="text" id="datepicker3">
-    End Date: <input type="text" id="datepicker4">
+        <div class="request-dates group">
+          <input type="text" id="datepicker3" placeholder="From">
+          <input type="text" id="datepicker4" placeholder="Until">
   </div>
     <button class="request-button">
       Request Reservation
@@ -68,35 +113,36 @@
   <%  } %>
 
 
-<div class="review-info">
-<h2>Reviews</h2>
+  <div class="review-info">
+  <h3>Reviews</h3>
 
-<% if (ShopUp.currentUser.id !== shop.get('owner_id')) { %>
+  <% shop.reviews().forEach( function(review) { %>
+    <div class="review group">
+      <a href="#/users/<%= review.get('user_id') %>">
+        <b><%= review.get('username') %> <%= review.get('lname') %></b>
+      </a>
+      <div class="review-date">
+        <% var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %>
+        <%= months[parseInt(review.get('created_at').slice(5,7)) - 1] %>
+        <%= review.get('created_at').slice(8,10) %>
+      </div>
+      <p>
+        <%= review.get('title') %>
+        <br>
+        <%= review.get('body') %>
+      </p>
 
-  <div class='review-button'>
-    <button class="write-review">Write a Review</button>
+    </div>
+
+    <% }) %>
+    <% if (ShopUp.currentUser.id !== shop.get('owner_id')) { %>
+
+      <div class='review-button'>
+        <button class="write-review">Write a Review</button>
+      </div>
+        <div class="review-form-insert"></div>
+
+    <% } %>
+
   </div>
-    <div class="review-form-insert"></div>
-
-<% } %>
-
-<% shop.reviews().forEach( function(review) { %>
-
-  <%= review.get('title') %>
-  <br>
-  <%= review.get('body') %>
-  <br>
-  <a href="#/users/<%= review.get('user_id') %>">
-    <%= review.get('username') %>
-  </a>
-  <br>
-  <% var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %>
-  <%= months[parseInt(review.get('created_at').slice(5,7)) - 1] %>
-  <%= review.get('created_at').slice(8,10) %>
-  <br>
-
-  <br><br>
-
-<% }) %>
-</div>
 </div>

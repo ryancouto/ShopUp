@@ -144,7 +144,7 @@ end
 	Review.create(
 	shop_id: (1..120).to_a.sample,
 	user_id: (1..50).to_a.sample,
-	title: Faker::Lorem.paragraph(1),
+	title: Faker::Lorem.word,
 	body: Faker::Lorem.paragraph(6)
 	)
 end

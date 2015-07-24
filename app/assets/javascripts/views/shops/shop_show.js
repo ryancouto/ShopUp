@@ -51,7 +51,6 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
     event.preventDefault();
     var view = this;
     var request = new ShopUp.Models.Reservation();
-
     request.save({
       owner_id: this.model.get('owner_id').toString(),
       renter_id: ShopUp.currentUser.id.toString(),
@@ -78,8 +77,7 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
     var res = ShopUp.Collections.reservations.getOrFetch(id);
     res.save({'approved': true},{
       success: function () {
-        view.reservations.add(res, { merge: true })
-        view.$el.append('Request approved');
+        view.reservations.add(res, { merge: true });
       },
       error: function (data) {
         console.log(data);
@@ -94,8 +92,7 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
     var res = ShopUp.Collections.reservations.getOrFetch(id);
     res.save({'approved': false},{
       success: function () {
-        view.reservations.add(res, { merge: true })
-        view.$el.append('Request rejected');
+        view.reservations.add(res, { merge: true });
       },
       error: function (data) {
         console.log(data);
@@ -116,7 +113,6 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
   },
 
   insertReviewForm: function (event) {
-    debugger
     event.preventDefault();
     var $but = $('.review-button');
     $but.empty();

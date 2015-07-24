@@ -20,7 +20,6 @@ ShopUp.Views.LogIn = Backbone.View.extend({
 
   oAuthLogin: function(event){
     event.preventDefault();
-    debugger
     window.location = '/auth/google_oauth2/';
   },
 
