@@ -19,31 +19,6 @@
     <% }) %>
   </div>
 
-  <div class="user-reviews">
-
-    <h3 class="user-reviews-header">
-      Reviews of <%= user.get('fname') %>'s shops
-    </h3>
-
-    <% reviews.forEach( function (review) { %>
-
-      <div class="user-review-info">
-
-        <div class="user-review-title">
-          <%= review.get('title') %>
-        </div>
-
-        <div class="user-review-body">
-          <%= review.get('body') %>
-        </div>
-
-          <%= review.get('user_id') %>
-
-      </div>
-
-      <% }) %>
-
-
   <% if (ShopUp.currentUser.id === user.id) { %>
     <div class="users-res-reqs">
       <h3 class="res-req-header">
@@ -95,4 +70,3 @@
 
 
   <% } %>
-</div>

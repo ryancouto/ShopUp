@@ -4,7 +4,7 @@ ShopUp.Views.LogIn = Backbone.View.extend({
 
   events: {
     'click .log-in': 'submit',
-    'click #twitter-login': 'oAuthLogin',
+    'click #google-login': 'oAuthLogin',
     'click .guest': 'guestLogin'
   },
 

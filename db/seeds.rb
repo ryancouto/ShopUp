@@ -56,7 +56,7 @@ end
 end
 #################
 30.times do
-	Shop.create(
+	shop = Shop.new(
 	owner_id: (1..51).to_a.sample,
 	address: (100..2000).to_a.sample.to_s + ' ' + ['Powell Street', 'Geary Boulevard', 'Market Street', 'Fillmore Street', 'Mission Boulevard', 'Haight Street', 'Ashbury Street', 'Divisadero Street'].sample,
 	city: "San Francisco",
@@ -64,7 +64,26 @@ end
 	price: Faker::Number.number(3),
 	size: Faker::Number.number(4)
 	)
+	img = ["#{Rails.root}/app/assets/images/1.jpg", "#{Rails.root}/app/assets/images/2.jpg", "#{Rails.root}/app/assets/images/3.jpg",
+				"#{Rails.root}/app/assets/images/4.jpg", "#{Rails.root}/app/assets/images/5.jpg", "#{Rails.root}/app/assets/images/6.jpg",
+				"#{Rails.root}/app/assets/images/9.jpg", "#{Rails.root}/app/assets/images/8.jpg", "#{Rails.root}/app/assets/images/7.jpg"].sample
+	shop.image = File.open(img)
+	shop.save!
 end
+
+shop = Shop.new(
+		owner_id: 1
+		address: (100..2000).to_a.sample.to_s + ' ' + ['Powell Street', 'Geary Boulevard', 'Market Street', 'Fillmore Street', 'Mission Boulevard', 'Haight Street', 'Ashbury Street', 'Divisadero Street'].sample,
+		city: "San Francisco",
+		description: Faker::Lorem.paragraph(6),
+		price: Faker::Number.number(3),
+		size: Faker::Number.number(4)
+		)
+	img = ["#{Rails.root}/app/assets/images/1.jpg", "#{Rails.root}/app/assets/images/2.jpg", "#{Rails.root}/app/assets/images/3.jpg",
+				"#{Rails.root}/app/assets/images/4.jpg", "#{Rails.root}/app/assets/images/5.jpg", "#{Rails.root}/app/assets/images/6.jpg",
+				"#{Rails.root}/app/assets/images/9.jpg", "#{Rails.root}/app/assets/images/8.jpg", "#{Rails.root}/app/assets/images/7.jpg"].sample
+	shop.image = File.open(img)
+	shop.save!
 
 30.times do
 	Shop.create(
