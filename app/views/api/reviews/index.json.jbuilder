@@ -5,4 +5,5 @@ json.array! @reviews do |review|
   json.title review.title
   json.body review.body
   json.username review.user.fname
+  json.lname review.user.lname
 end

@@ -129,7 +129,9 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
       shop_id: this.model.id.toString(),
       user_id: ShopUp.currentUser.id.toString(),
       body: attrs.body,
-      title: attrs.title
+      title: attrs.title,
+      username: ShopUp.currentUser.get('fname'),
+      lname: ShopUp.currentUser.get('lname')
     }, {
       success: function () {
         view.reviews.add(review);
