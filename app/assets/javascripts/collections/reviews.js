@@ -3,6 +3,10 @@ ShopUp.Collections.Reviews = Backbone.Collection.extend({
 
   model: ShopUp.Models.Review,
 
+  comparator: function(review) {
+    return -review.id;
+  },
+
   getOrFetch: function (id) {
     var model = this.get(id);
     var collec = this;
