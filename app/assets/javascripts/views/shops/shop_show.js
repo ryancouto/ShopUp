@@ -62,10 +62,9 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
       success: function () {
         view.reservations.add(request, { merge: true })
         view.render()
-        view.$el.append('Reservation successfully requested');
       },
       error: function(data) {
-        view.$el.append('Request unsuccessful, please try again');
+        alert('Request unsuccessful, please try again');
       }
     });
   },
@@ -117,7 +116,7 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
     var $but = $('.review-button');
     $but.empty();
     var $div = $('.review-form-insert')
-    $div.html("<form class='review-form'><input type='text' name='review[title]' placeholder='Title' class='review-title'><input type='string' name='review[body]' placeholder='Write your review here' class='review-body'><button class='review-form-submit'>Post Review</button></form>");
+    $div.html("<form class='review-form'><input type='text' name='review[title]' placeholder='Title' class='review-title'><textarea rows='5' cols='40' type='string' name='review[body]' placeholder='Write your review here' class='review-body'></textarea><button class='review-form-submit'>Post Review</button></form>");
   },
 
   submitReview: function (event) {

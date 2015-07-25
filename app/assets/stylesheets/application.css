@@ -286,13 +286,11 @@ a:hover {
 }
 
 .shop-show > .shop-info {
-  vertical-align: middle;
-  width: 49%;
+  /*vertical-align: middle;*/
   display: inline-block;
   border: 1px grey solid;
   border-radius: 10px;
   padding: 0 0 20px 4px;
-  margin-top: 20px;
   margin-right: 4px;
 }
 
@@ -481,7 +479,11 @@ a:hover {
 
 .review-body {
   height: 100px;
+  padding: 10px;
+  width: 438px;
+  margin: 0 10px 5px;
 }
+
 .req-name-date {
   display: inline-block;
   padding-left: 4px;
@@ -497,7 +499,6 @@ a:hover {
 
 /* Shop Index */
 .index-img {
-
   width: 200px;
 }
 
