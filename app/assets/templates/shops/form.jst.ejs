@@ -1,4 +1,5 @@
-<% if (shop.isNew()) { %>
+<div class="form-shop">
+	<% if (shop.isNew()) { %>
 
 	<h2>Post Your Shop</h2>
 
@@ -11,41 +12,34 @@
 <form class="shop-form">
 
 	<label>
-		Address
 		<input type="text" name="shop[address]" value="<%= shop.escape('address') %>" class="address" placeholder="address">
 	</label>
 
 	<label>
-		City
 		<input type="text" name="shop[city]" value="<%= shop.escape('city') %>" class="city" placeholder="city">
 	</label>
 
 	<label>
-		Description
-		<input type="textarea" name="shop[description]" value="<%= shop.escape('description') %>" class="description" placeholder="description">
+		<textarea rows="5" cols="40" placeholder="description" name="shop[description]"></textarea>
 	</label>
 
 	<label>
-		Price
 		<input type="text" name="shop[price]" value="<%= shop.escape('price') %>" class="price" placeholder="price">
 	</label>
 
 	<label>
-		Size
 		<input type="text" name="shop[size]" value="<%= shop.escape('size') %>" class="size" placeholder="size">
 	</label>
 
-	<label>
-		Image
+	<label class="img">
 		<input type="file" name="post[image]" id="input-post-image">
 	</label>
 
-	<br>
-
-	<img src="" id="preview-post-image" width="50">
+	<img src="" id="preview-post-image">
 
 	<br>
 
 
 	<button class="shop-form-button">Submit</button>
-</form>
+	</form>
+</div>

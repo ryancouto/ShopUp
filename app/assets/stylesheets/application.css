@@ -342,7 +342,48 @@ a:hover {
 
 /* Shop Form */
 #preview-post-image {
-  width: 50px;
+  max-width: 300px;
+}
+
+.shop-form label {
+  display: block;
+  padding-bottom: 20px;
+}
+
+.shop-form input {
+  width: 478px;
+  padding: 10px;
+}
+
+.shop-form textarea {
+  width: 478px;
+  padding: 10px;
+  border: 1px #ccc solid;
+}
+
+.shop-form > .img {
+  padding-bottom: 0px;
+}
+
+.form-shop {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.shop-form button {
+  cursor: pointer;
+  padding: 10px;
+  padding-top: 11px;
+  border: 1px #aaa solid;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  width: 100px;
+}
+
+.shop-form button:hover {
+  opacity: 0.75;
 }
 
 /* Shop Show */
