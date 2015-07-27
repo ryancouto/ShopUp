@@ -291,8 +291,7 @@ a:hover {
   display: inline-block;
   border: 1px grey solid;
   border-radius: 10px;
-  padding: 0 0 20px 4px;
-  margin-right: 4px;
+  padding: 0 4px 20px 4px;
 }
 
 .shop-show h3 {
@@ -342,7 +341,7 @@ a:hover {
 }
 
 .res-info {
-  width:49%;
+  width:487px;
   float:right;
   border: 1px grey solid;
   border-radius: 10px;
@@ -395,7 +394,7 @@ a:hover {
 }
 
 .request-info {
-  width:49%;
+  width:487px;
   float:right;
   background: green;
   border: 1px grey solid;
@@ -454,11 +453,11 @@ a:hover {
 
 .review-info {
   float:left;
-  width: 48%;
+  width: 487px;
   border: 1px grey solid;
   border-radius: 10px;
   padding: 0 4px 5px 4px;
-  margin: 10px 4px 20px 0;
+  margin: 10px 0 20px 0;
 }
 
 .review-button {
