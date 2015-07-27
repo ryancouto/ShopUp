@@ -32,8 +32,13 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
   },
 
   createDatepicker: function () {
-    this.$( "#datepicker3" ).datepicker();
-    this.$( "#datepicker4" ).datepicker();
+    var dateToday = new Date()
+    this.$( "#datepicker3" ).datepicker({
+      minDate: dateToday
+    });
+    this.$( "#datepicker4" ).datepicker({
+      minDate: dateToday
+    });
   },
 
   dateParser: function (date) {
@@ -64,7 +69,7 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
         view.render()
       },
       error: function(data) {
-        alert('Request unsuccessful, please try again');
+        alert('Request unsuccessful, please check dates and try again');
       }
     });
   },

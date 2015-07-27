@@ -85,6 +85,20 @@ img {
   vertical-align: left;
 }
 
+.ui-datepicker-unselectable {
+  background: #aaa;
+  color: white;
+}
+
+.ui-datepicker-other-month {
+  background: white;
+}
+
+.ui-state-hover {
+  background: red;
+  color: white;
+}
+
 .login-links {
   display: block;
   float: right;
@@ -422,10 +436,11 @@ a:hover {
 }
 
 #shop-show-size {
+  float: right;
   position:relative;
+  bottom: 80px;
+  left: 70px;
   display: inline-block;
-  bottom: 120px;
-  left: 700px;
   font-weight: bold;
   font-size: 24px;
   z-index: 1;
@@ -438,15 +453,15 @@ a:hover {
 }
 
 #shop-show-price {
+  float:right;
   position: relative;
   display: inline-block;
-  bottom: 120px;
+  bottom: 40px;
   background: red;
   color: white;
   font-weight: bold;
   padding: 5px;
   letter-spacing: 2px;
-
 }
 
 .shop-show-desc {
