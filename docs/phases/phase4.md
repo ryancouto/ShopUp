@@ -1,4 +1,4 @@
-# Phase 4: CSS styling, JQuery Plugins, Google Maps
+# Phase 4: CSS styling, Search
 
 ## Rails
 ### Models
@@ -14,6 +14,6 @@
 
 ### Views
 * shops/show.jst.ejs
+* shops/search.ejs.jst
 
 ## Gems/Libraries
-* Google Maps JS API

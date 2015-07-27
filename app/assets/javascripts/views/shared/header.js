@@ -15,16 +15,16 @@ ShopUp.Views.Header = Backbone.View.extend({
   render: function(){
     var content = this.template({ currentUser: ShopUp.currentUser });
     this.$el.html(content);
-    this.createDatepicker();
+    // this.createDatepicker();
     this.autoCompleter();
 
     return this;
   },
 
-  createDatepicker: function () {
-    this.$( "#datepicker" ).datepicker();
-    this.$( "#datepicker2" ).datepicker();
-  },
+  // createDatepicker: function () {
+  //   this.$( "#datepicker" ).datepicker();
+  //   this.$( "#datepicker2" ).datepicker();
+  // },
 
 
   signOut: function(event){

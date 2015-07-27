@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: http://shopup4444.herokuapp.com
+[heroku]: http://shopupshopup.herokuapp.com
 
 ## Minimum Viable Product
 ShopUp is an AirBnB clone built on Rails and backbone. Users can:
@@ -12,7 +12,7 @@ ShopUp is an AirBnB clone built on Rails and backbone. Users can:
 - [x] Post shops
 - [x] View shop
 - [x] Reserve shops
-- [ ] Search shops by location and price
+- [x] Search shops by price
 - [x] Review shops
 
 ## Design Docs
@@ -45,20 +45,12 @@ will be displayed on their associated shop's backbone show pages.
 
 [Details][phase-three]
 
-### Phase 4: CSS styling, JQuery Plugins, Google Maps (~1-2 days)
-I will begin CSS styling for the shop's show page, as well as the root page. I will
-also utilize a Jquery slideshow on the shop show page to display associated
-pictures. Additionally, I will show shop's locations through the google Maps
-API on their show page.
-
+### Phase 4: CSS styling, Search (~1-2 days)
+I will begin CSS styling for the shop's show page, as well as the root page.
+I'll need to add `search` routes to the shops controllers. This will filter
+shops by their location. I will also finish the CSS styling.
 
 [Details][phase-four]
-
-### Phase 5: Searching for Shops, final CSS styling (~2 days)
-I'll need to add `search` routes to the shops controllers. This will filter shops
-by their price, size, and location. I will also finish the CSS styling.
-
-[Details][phase-five]
 
 ### Bonus Features (TBD)
 - [ ] Show page maps display nearby shops
