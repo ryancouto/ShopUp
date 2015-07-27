@@ -19,7 +19,6 @@ ShopUp.Views.UserShow = Backbone.View.extend({
   },
 
   render: function () {
-
     var content = this.template({
       user: this.model,
       shops: this.shops,

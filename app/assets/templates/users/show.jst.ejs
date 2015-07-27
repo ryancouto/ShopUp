@@ -4,69 +4,116 @@
   <h2 class="user-name"><%= user.escape('email') %></h2>
 <% } %>
 
-
-<div class="user-show group">
-  <div class="users-shops">
-    <h3 class="owned-shops-header">
-      Owned Shops
-    </h3>
-    <% shops.forEach( function (shop){ %>
-      <div class="shop-info">
-        <a href="#/shops/<%= shop.id %>">
-          <%= shop.get('address') %>, <%= shop.get('city') %>
-        </a>
-      </div>
-    <% }) %>
-  </div>
-
-  <% if (ShopUp.currentUser.id === user.id) { %>
-    <div class="users-res-reqs">
-      <h3 class="res-req-header">
-        Your Requested Reservations
+<% if (ShopUp.currentUser.id === user.id) { %>
+  <div class="user-show group">
+    <span class="left group">
+    <div class="users-shops">
+      <h3 class="owned-shops-header">
+        Owned Shops
       </h3>
-      <% user.reservationRequests().forEach( function (res) { %>
-        <div class="res-req-info">
-        <%= res.get('shop_id') %>
-          <div class="res-dates">
-            <%= res.get('start_day') %> - <%= res.get('end_day') %>
-          </div>
+      <% shops.forEach( function (shop){ %>
+        <div class="shop-info">
+          <a href="#/shops/<%= shop.id %>">
+            <%= shop.get('address') %>, <%= shop.get('city') %>
+          </a>
         </div>
       <% }) %>
     </div>
 
     <div class="user-pen-res">
       <h3 class="pen-res-header">
-        Your Pending Reservations
+        Pending Reservations for your Shops
       </h3>
       <% user.pendingReservations().forEach( function (res) { %>
         <% if (res.get('approved') === false) { %>
         <a href="#/shops/<%= res.get('shop_id') %>">
           <div class="pen-res-info">
-            <%= res.get('shop_id') %>
+            <%= res.get('renter_name') %>
+            <br>
+            <%= res.get('shop_address') %>, <%= res.get('shop_city') %>
           </div>
           <div class="res-dates">
-            <%= res.get('start_day') %> - <%= res.get('end_day') %>
+
+            <% months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] %>
+
+            <% var start_month = months[parseInt(res.escape('start_day').slice(6,8)) - 1] %>
+            <% var end_month = months[parseInt(res.escape('end_day').slice(6,8)) - 1] %>
+
+            <%= start_month %> <%= parseInt(res.escape('start_day').slice(8,10)) %>, <%= res.escape('start_day').slice(0,4) %>
+            -
+            <%= end_month %> <%= parseInt(res.escape('end_day').slice(8,10)) %>, <%= res.escape('end_day').slice(0,4) %>
           </div>
+          <br><br>
         </a>
         <% } %>
       <% }) %>
     </div>
+  </span>
+
+  <span class="right group">
 
     <div class="user-appr-res">
       <h3 class="appr-res-header">
-        Your Approved Reservations
+        Reservations you've Approved
       </h3>
       <% user.pendingReservations().forEach( function (res) { %>
         <% if (res.get('approved') === true) { %>
+          <a href="#/shops/<%= res.get('shop_id') %>">
           <div class="pen-res-info">
-            <%= res.get('shop_id') %>
+            <%= res.get('shop_address') %>, <%= res.get('shop_city') %>
           </div>
-          <div class="res-dates">
-            <%= res.get('start_day') %> - <%= res.get('end_day') %>
-          </div>
+            <div class="res-dates">
+              <% var start_month = months[parseInt(res.escape('start_day').slice(6,8)) - 1] %>
+              <% var end_month = months[parseInt(res.escape('end_day').slice(6,8)) - 1] %>
+
+              <%= start_month %> <%= parseInt(res.escape('start_day').slice(8,10)) %>, <%= res.escape('start_day').slice(0,4) %>
+              -
+              <%= end_month %> <%= parseInt(res.escape('end_day').slice(8,10)) %>, <%= res.escape('end_day').slice(0,4) %>
+            </div>
+          </a>
+          <br><br>
         <% } %>
       <% }) %>
     </div>
 
 
-  <% } %>
+
+      <div class="users-res-reqs">
+        <h3 class="res-req-header">
+          Reservations you've Requested
+        </h3>
+        <% user.reservationRequests().forEach( function (res) { %>
+          <a href="#/shops/<%= res.get('shop_id') %>">
+            <div class="res-req-info">
+              <%= res.get('shop_address') %>, <%= res.get('shop_city') %>
+                <br>
+                  <div class="res-req-dates">
+                    <% var start_month = months[parseInt(res.escape('start_day').slice(6,8)) - 1] %>
+                    <% var end_month = months[parseInt(res.escape('end_day').slice(6,8)) - 1] %>
+
+                    <%= start_month %> <%= parseInt(res.escape('start_day').slice(8,10)) %>, <%= res.escape('start_day').slice(0,4) %>
+                    -
+                    <%= end_month %> <%= parseInt(res.escape('end_day').slice(8,10)) %>, <%= res.escape('end_day').slice(0,4) %>
+                <br><br>
+              </div>
+            </div>
+          </a>
+        <% }) %>
+      </div>
+    </span>
+  <% } else { %>
+    <div class="other-shops">
+      <h3 class="owned-shops-header">
+        Owned Shops
+      </h3>
+      <% shops.forEach( function (shop){ %>
+        <div class="shop-info">
+          <a href="#/shops/<%= shop.id %>">
+            <%= shop.get('address') %>, <%= shop.get('city') %>
+          </a>
+        </div>
+      <% }) %>
+    </div>
+
+    <% } %>
+  </div>

@@ -262,13 +262,83 @@ a:hover {
 }
 
 .user-show {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.user-show a:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.user-show > span > div {
+  background: white;
+  border: 1px grey solid;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 5px;
+}
+
+.left {
+  float: left;
+  width: 490px;
+  margin: 0 auto;
+}
+
+.right {
+  float: right;
+  width: 490px;
+  margin: 0 auto;
 }
 
 .users-shops {
+  width: 350px;
+  float: right;
+}
+
+.user-pen-res {
+  margin-top: 10px;
+  width: 350px;
+  float: right;
 }
 
 .users-res-reqs {
+  margin-top: 10px;
+  width: 350px;
 }
+
+.user-appr-res {
+  width: 350px;
+}
+
+.user-show h3 {
+  text-align: center;
+  border-bottom: 1px grey solid;
+  margin-bottom: 10px;
+  padding-bottom: 8.72px;
+  margin-top: 10px;
+}
+
+.other-shops {
+  background: white;
+  border: 1px grey solid;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 5px;
+}
+
+.other-shops a:hover {
+  color: red;
+}
+
+.other-shops h3 {
+  text-align: center;
+  border-bottom: 1px grey solid;
+  margin-bottom: 10px;
+  padding-bottom: 8.72px;
+  margin-top: 10px;
+}
+
 
 /* Shop Form */
 #preview-post-image {
@@ -287,11 +357,13 @@ a:hover {
 }
 
 .shop-show > .shop-info {
-  /*vertical-align: middle;*/
+  float: left;
+  width: 487px;
   display: inline-block;
   border: 1px grey solid;
   border-radius: 10px;
   padding: 0 4px 20px 4px;
+  margin-top: 31px;
 }
 
 .shop-show h3 {
@@ -400,7 +472,7 @@ a:hover {
   border: 1px grey solid;
   border-radius: 10px;
   padding: 0 4px 0 4px;
-  margin: 10px 0 20px 0;
+  margin: 0 0 20px 0;
 }
 
 .request-yo {
