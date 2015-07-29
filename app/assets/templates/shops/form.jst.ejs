@@ -20,15 +20,15 @@
 	</label>
 
 	<label>
-		<textarea rows="5" cols="40" placeholder="description" name="shop[description]"></textarea>
+		<textarea rows="5" cols="40" placeholder="description" name="shop[description]" class="description"></textarea>
 	</label>
 
 	<label>
-		<input type="text" name="shop[price]" value="<%= shop.escape('price') %>" class="price" placeholder="price">
+		<input type="text" name="shop[price]" value="<%= shop.escape('price') %>" class="price" placeholder="$/day">
 	</label>
 
 	<label>
-		<input type="text" name="shop[size]" value="<%= shop.escape('size') %>" class="size" placeholder="size">
+		<input type="text" name="shop[size]" value="<%= shop.escape('size') %>" class="size" placeholder="square feet">
 	</label>
 
 	<label class="img">
