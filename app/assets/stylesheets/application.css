@@ -159,6 +159,7 @@ img {
   font-weight: bold;
   letter-spacing: 2px;
   text-transform: uppercase;
+  /*background:red;*/
 
 }
 
@@ -520,6 +521,16 @@ a:hover {
 
 .delete-yours {
   float:left;
+  padding-bottom: 5px;
+}
+
+.delete-yours > button {
+  border-radius: 10px;
+  background: red;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: auto;
+  margin-left: 30px;
 }
 
 
