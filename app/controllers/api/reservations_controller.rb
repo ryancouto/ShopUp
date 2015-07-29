@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Api::ReservationsController < ApplicationController
 
   def index
