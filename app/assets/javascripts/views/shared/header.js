@@ -60,8 +60,10 @@ ShopUp.Views.Header = Backbone.View.extend({
   search: function (event) {
     event.preventDefault();
     var query = this.$('.search-text').val();
+    var miles = this.$('.search-miles').val();
     that = this;
-    Backbone.history.navigate('#/search?query=' + query, { trigger: true });
+    debugger
+    Backbone.history.navigate('#/search?query=' + query +'-'+ miles, { trigger: true });
   },
 
   postShop: function(event) {

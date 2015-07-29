@@ -1,8 +1,13 @@
+
+
 class Api::ShopsController < ApplicationController
 
 	def search
-		@search_results = Shop
-			.search_by_full_address(params[:query])
+		query = params[:query].split('-')
+		city = query[0]
+		miles = query[1]
+		@search_results = Shop.near(city, miles)
+			# .search_by_full_address(params[:query])
 		#.page(params[:page])
 		render :search
 	end
