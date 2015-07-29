@@ -53,10 +53,8 @@ shops by their location. I will also finish the CSS styling.
 [Details][phase-four]
 
 ### Bonus Features (TBD)
-- [ ] Show page maps display nearby shops
-- [ ] AJAX nav bar
+- [ ] Search by proximity
 - [ ]	Wish lists
-- [ ]	Hide reservation requests
 - [ ] User avatars
 
 [phase-one]: ./docs/phases/phase1.md
