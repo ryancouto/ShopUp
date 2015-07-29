@@ -142,7 +142,7 @@ img {
 .search-bar {
   display: inline;
   text-align: center;
-  padding-left: 198px;
+  padding-left: 143px;
 }
 
 .search-bar > input {
@@ -175,7 +175,11 @@ img {
 }
 
 .search-text {
-  width: 190px;
+  width: 189px;
+}
+
+.search-miles {
+  width: 80px;
 }
 
 .search-date {
