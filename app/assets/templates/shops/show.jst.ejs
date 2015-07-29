@@ -1,4 +1,4 @@
-<div class="shop-show">
+<div class="shop-show group">
 
   <div class="shop-img">
     <img src="<%= shop.escape('image_url') %>">
@@ -10,6 +10,7 @@
     <%= shop.escape('size') %> square feet
   </span>
 
+<span class="left-shop group">
   <div class="shop-info">
     <div class="shop-show-address">
       <%= shop.escape('address') %>, <%= shop.escape('city') %>
@@ -18,8 +19,47 @@
       <%= shop.escape('description') %>
     </div>
   </div>
+  <!-- <br><br><br><br><br><br><br><br><br><br> -->
+
+  <div class="review-info">
+  <h3>Reviews</h3>
+
+  <% shop.reviews().forEach( function(review) { %>
+    <div class="review group">
+      <a href="#/users/<%= review.get('user_id') %>">
+        <b><%= review.get('username') %> <%= review.get('lname') %></b>
+      </a>
+      <div class="review-date">
+        <% var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %>
+        <%= months[parseInt(review.get('created_at').slice(5,7)) - 1] %>
+        <%= review.get('created_at').slice(8,10) %>
+      </div>
+      <p>
+        <%= review.get('title') %>
+        <br>
+        <%= review.get('body') %>
+      </p>
+
+    </div>
+
+    <% }) %>
+    <% if (ShopUp.currentUser.id !== shop.get('owner_id')) { %>
+
+      <div class='review-button'>
+        <button class="write-review">Write a Review</button>
+      </div>
+        <div class="review-form-insert"></div>
+
+    <% } %>
 
 
+  </div>
+</span>
+
+
+
+
+<span class="right-shop group">
   <% if (shop.get('owner_id') === ShopUp.currentUser.get('id')) { %>
 
     <div class="request-info">
@@ -88,8 +128,9 @@
               <% var end_month = months[parseInt(res.escape('end_day').slice(6,8)) - 1] %>
 
               <%= start_month %> <%= parseInt(res.escape('start_day').slice(8,10)) %>, <%= res.escape('start_day').slice(0,4) %>
-              -
+               -
               <%= end_month %> <%= parseInt(res.escape('end_day').slice(8,10)) %>, <%= res.escape('end_day').slice(0,4) %>
+
             </div>
             <div class="approval-status">
               <% if (res.escape('approved') === true) { %>
@@ -98,6 +139,11 @@
                 Pending Approval
               <% } %>
             </div>
+            <span class="delete-yours">
+              <button class="delete-request" data-id="<%= res.escape('id') %>">
+                Delete Request
+              </button>
+            </span>
           </div>
 
           <% } %>
@@ -112,37 +158,5 @@
     </div>
   <%  } %>
 
-
-  <div class="review-info">
-  <h3>Reviews</h3>
-
-  <% shop.reviews().forEach( function(review) { %>
-    <div class="review group">
-      <a href="#/users/<%= review.get('user_id') %>">
-        <b><%= review.get('username') %> <%= review.get('lname') %></b>
-      </a>
-      <div class="review-date">
-        <% var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %>
-        <%= months[parseInt(review.get('created_at').slice(5,7)) - 1] %>
-        <%= review.get('created_at').slice(8,10) %>
-      </div>
-      <p>
-        <%= review.get('title') %>
-        <br>
-        <%= review.get('body') %>
-      </p>
-
-    </div>
-
-    <% }) %>
-    <% if (ShopUp.currentUser.id !== shop.get('owner_id')) { %>
-
-      <div class='review-button'>
-        <button class="write-review">Write a Review</button>
-      </div>
-        <div class="review-form-insert"></div>
-
-    <% } %>
-
-  </div>
+</span>
 </div>

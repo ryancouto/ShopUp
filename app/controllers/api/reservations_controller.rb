@@ -1,3 +1,5 @@
+require 'byebug'
+
 class Api::ReservationsController < ApplicationController
 
   def index
@@ -44,7 +46,12 @@ class Api::ReservationsController < ApplicationController
   end
 
   def destroy
-    @reservation = current_user.pending_reservations.find(params[:id])
+    if Reservation.where(renter_id: current_user.id, id: params[:id]).exists?
+      @reservation = current_user.requested_reservations.find(params[:id])
+    elsif Reservation.where(owner_id: current_user.id, id: params[:id]).exists?
+      @reservation = current_user.pending_reservations.find(params[:id])
+    end
+
     if @reservation
       @reservation.destroy
     else

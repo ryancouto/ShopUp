@@ -132,6 +132,7 @@ img {
 
 #new-shop {
   margin-right: 0;
+
 }
 
 .user-info > a:hover {
@@ -405,19 +406,26 @@ a:hover {
   margin: 0 auto;
 }
 
-.shop-show > div {
+.left-shop {
+  float: left;
+}
+
+.right-shop {
+  float: right;
+}
+
+.shop-show > span > div {
   background: #eee;
   background: white;
 }
 
-.shop-show > .shop-info {
-  float: left;
+.shop-info {
   width: 487px;
-  display: inline-block;
+  display: block;
   border: 1px grey solid;
   border-radius: 10px;
   padding: 0 4px 20px 4px;
-  margin-top: 31px;
+  margin-top: 29px;
 }
 
 .shop-show h3 {
@@ -479,6 +487,7 @@ a:hover {
 .review-date {
   display: inline;
   text-align: center;
+  float:right;
 }
 
 .res-buttons {
@@ -505,6 +514,10 @@ a:hover {
   float:right;
 }
 
+.delete-yours {
+  float:left;
+}
+
 
 .ui-datepicker-header {
   background: black;
@@ -523,7 +536,6 @@ a:hover {
 .request-info {
   width:487px;
   float:right;
-  background: green;
   border: 1px grey solid;
   border-radius: 10px;
   padding: 0 4px 0 4px;
@@ -579,7 +591,6 @@ a:hover {
 }
 
 .review-info {
-  float:left;
   width: 487px;
   border: 1px grey solid;
   border-radius: 10px;
