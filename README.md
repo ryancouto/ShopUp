@@ -53,7 +53,8 @@ shops by their location. I will also finish the CSS styling.
 [Details][phase-four]
 
 ### Bonus Features (TBD)
-- [ ] Search by proximity
+- [x] Search by proximity
+- [ ] Google Map API Integration
 - [ ]	Wish lists
 - [ ] User avatars
 

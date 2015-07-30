@@ -273,6 +273,13 @@ a:hover {
   padding-bottom: 60px;
 }
 
+/* User-Form */
+
+.login-page > .user-form > .sign-up {
+  position: relative;
+  bottom: 60px;
+}
+
 /* User-Show */
 
 .user-name {

@@ -15,17 +15,10 @@ ShopUp.Views.Header = Backbone.View.extend({
   render: function(){
     var content = this.template({ currentUser: ShopUp.currentUser });
     this.$el.html(content);
-    // this.createDatepicker();
     this.autoCompleter();
 
     return this;
   },
-
-  // createDatepicker: function () {
-  //   this.$( "#datepicker" ).datepicker();
-  //   this.$( "#datepicker2" ).datepicker();
-  // },
-
 
   signOut: function(event){
     event.preventDefault();
@@ -38,19 +31,7 @@ ShopUp.Views.Header = Backbone.View.extend({
 
   autoCompleter: function() {
     var availableTags = [
-      "New York",
-      "Brooklyn",
-      "San Francisco",
-      "Oakland",
-      "Los Angeles",
-      "London",
-      "Paris",
-      // "Tokyo",
-      // "Chicago",
-      // "Berlin",
-      // "Copenhagen",
-      "Amsterdam",
-      "Rome"
+      "New York", "Brooklyn", "San Francisco", "Oakland", "Los Angeles", "London", "Paris", "Amsterdam", "Rome"
     ];
     $( "#tags" ).autocomplete({
       source: availableTags

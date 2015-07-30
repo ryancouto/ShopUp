@@ -10,7 +10,6 @@ ShopUp.Views.LogIn = Backbone.View.extend({
 
   initialize: function (options) {
     this.callback = options.callback;
-    // this.listenTo(ShopUp.currentUser, 'signIn', this.signInCallback);
   },
 
   render: function () {
@@ -60,13 +59,5 @@ ShopUp.Views.LogIn = Backbone.View.extend({
       }
     });
   }
-
-  // signInCallback: function(event){
-  //   if(this.callback) {
-  //     this.callback();
-  //   } else {
-  //     Backbone.history.navigate("/#/shops", { trigger: true });
-  //   }
-  // }
 
 });

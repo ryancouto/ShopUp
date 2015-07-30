@@ -1,14 +1,16 @@
-<h2>Sign Up</h2>
+<div class="login-page">
+	<h2 class=>Sign Up</h2>
 
-<form class="user-form">
+	<form class="user-form">
 
-	<input type="text" name="user[email]" value="<%= user.escape('email') %>" placeholder="email">
+		<input type="text" name="user[email]" value="<%= user.escape('email') %>" placeholder="email">
 
-	<input type="text" name="user[fname]" value ="<%= user.escape('fname') %>" placeholder="first name">
+		<input type="text" name="user[fname]" value ="<%= user.escape('fname') %>" placeholder="first name">
 
-	<input type="text" name="user[lname]" value="<%= user.escape('lname') %>" placeholder="last name">
+		<input type="text" name="user[lname]" value="<%= user.escape('lname') %>" placeholder="last name">
 
-	<input type="password" name="user[password]" value="" placeholder="password">
+		<input type="password" name="user[password]" value="" placeholder="password">
 
-  <button class="sign-up">Submit</button>
-</form>
+	  <button class="log-in sign-up">Submit</button>
+	</form>
+</div>

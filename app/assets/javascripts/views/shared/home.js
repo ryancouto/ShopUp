@@ -17,20 +17,6 @@ ShopUp.Views.Home = Backbone.View.extend({
     // this.createDatepicker();
 
     return this;
-  },
-
-  // createDatepicker: function () {
-  //   this.$( "#datepicker" ).datepicker();
-  //   this.$( "#datepicker2" ).datepicker();
-  // },
-  //
-  // signOut: function(event){
-  //   event.preventDefault();
-  //   ShopUp.currentUser.signOut({
-  //     success: function(){
-  //       Backbone.history.navigate("", { trigger: true });
-  //     }
-  //   });
-  // }
+  }
 
 });

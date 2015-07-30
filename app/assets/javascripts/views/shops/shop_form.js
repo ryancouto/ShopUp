@@ -55,34 +55,7 @@ ShopUp.Views.ShopForm = Backbone.View.extend({
         console.log(data);
       }
     });
-
-    // var that = this;
-    // this.model.saveFormData(formData, {
-    //   success: function(){
-    //     that.collection.add(that.model);
-    //     Backbone.history.navigate('#/shops/' + view.model.id.toString(), { trigger: true });
-    //   },
-    //   error: function(data) {
-    //     console.log(data);
-    //   }
-    // });
   },
-
-
-  // submit: function (event) {
-  //   event.preventDefault();
-  //   var attrs = $('.shop-form').serializeJSON().shop;
-  //   var view = this;
-  //   this.model.save(attrs, {
-  //     success: function () {
-  //       view.collection.add(view.model, { merge: true });
-  //       Backbone.history.navigate('#/shops/' + view.model.id.toString(), { trigger: true });
-  //     },
-  //     error: function (data) {
-  //       console.log(data);
-  //     }
-  //   });
-  // },
 
   fileInputChange: function(event){
     console.log(event.currentTarget.files[0]);
