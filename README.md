@@ -1,19 +1,79 @@
 # ShopUp
 
-[Heroku link][heroku]
+[Live]: http://shopup.xyz
 
-[heroku]: http://shopupshopup.herokuapp.com
+## About
+ShopUp is an Airbnb inspired app for commercial pop-up store rentals. I chose to
+use a single-page design, along with asynchronous server requests, to create the
+most fluid user experience possible.
 
-## Minimum Viable Product
-ShopUp is an AirBnB clone built on Rails and backbone. Users can:
+## How To Use
 
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Post shops
-- [x] View shop
-- [x] Reserve shops
-- [x] Search shops by price
-- [x] Review shops
+### Log In
+I suggest using the 'Sign In as Guest' feature to fully experience the site's
+functionality.
+
+### Home Page
+The Home Page features 7 cities, which are all populated with shops for rent.
+If you click on a picture, you will be taken to the search page, featuring all
+shops for rent in that city.
+
+### User Page
+Click on your Username in the top right of the header, and you will be taken to
+your profile page. From here, you can see all of the shops you own, the reservations
+for those shops that you've approved, the reservations that are still pending, and
+reservations that you have requested for other shops. These are all clickable links
+that will take you to the page of the associated shop.
+
+### Shop Page
+Your shops page is where you can approve and delete requests for reservations.
+If it is a shop that you do not own, you can request a reservation, delete any
+requests you've made, or write a review about the shop. Additionally, you can read
+reviews posted by other users.
+
+### Search Page
+From any page on the site, you can conduct a new search through the header. Begin
+typing in the 'Where do you want to pop up?' text box, and you will be given search
+suggestions in an autocomplete dropdown. Optionally, you may choose a search radius
+to look for shops in nearby cities as well (San Francisco and Oakland,
+New York and Brooklyn). The search page will show all shops that match your input,
+displayed in order of proximity. Each shop shows it's size, price, address, and
+description.
+
+### Shop Post
+Through the 'Post a Shop' link on the header, you can create a new shop. On this
+form, you can specify your shop's address, city, description, price, and size.
+Additionally, you can upload a picture to accompany your shop's page through Paperclip
+and AWS.
+
+## Technologies Used
+
+### Languages
+* JavaScript
+* Ruby
+* HTML
+* CSS
+
+### Frameworks
+* Ruby on Rails
+* Backbone.js
+
+### Miscellaneous
+* jQuery
+* jQuery-UI
+* AJAX
+* Paperclip/AWS
+* Geocoder
+* Figaro
+* jBuilder
+* OmniAuth
+
+### To-Do
+* Nearby Shops
+* Google Map API Integration
+* Infinite Scrolling
+* Wish lists
+* User avatars
 
 ## Design Docs
 * [View Wireframes][views]
@@ -21,42 +81,6 @@ ShopUp is an AirBnB clone built on Rails and backbone. Users can:
 
 [views]: ./docs/views.md
 [schema]: ./docs/schema.md
-
-## Implementation Timeline
-
-### Phase 1: User Authentication, Shop Creation and Viewing (~1 day)
-I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create shops using
-a simple text form in a Rails view.
-
-[Details][phase-one]
-
-### Phase 2: Backbone Shop View and Reservations (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
-models and collections that fetch data from those routes. By the end of this
-phase, users will be able to view shop show pages within the backbone framework.
-Shop show pages will display pending and approved reservations.
-
-[Details][phase-two]
-
-### Phase 3: Reviews and Pictures (~2 days)
-I will create Review and Picture models in both rails and backbone. These models
-will be displayed on their associated shop's backbone show pages.
-
-[Details][phase-three]
-
-### Phase 4: CSS styling, Search (~1-2 days)
-I will begin CSS styling for the shop's show page, as well as the root page.
-I'll need to add `search` routes to the shops controllers. This will filter
-shops by their location. I will also finish the CSS styling.
-
-[Details][phase-four]
-
-### Bonus Features (TBD)
-- [x] Search by proximity
-- [ ] Google Map API Integration
-- [ ]	Wish lists
-- [ ] User avatars
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

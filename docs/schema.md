@@ -20,16 +20,6 @@ reviewer_id	| integer		| not null, foreign key (reference user)
 title				| string		| not null
 body 				| text			| not null
 
-
-## pictures
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-shop_id     | integer   | not null, foreign key (references shop)
-url         | string    | not null, unique
-caption     | string    |
-type 				| string		|
-
 ## reservations
 column name | data type | details
 ------------|-----------|-----------------------
