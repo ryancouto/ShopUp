@@ -35,7 +35,7 @@ The space contains a storage space/coat closet directly accessible as well as de
 ]
 #######
 20.times do
-	Shop.new(
+	shop = Shop.new(
 	owner_id: (1..51).to_a.sample,
 	address: (100..1800).to_a.sample.to_s + ' ' + ['Broadway Avenue', 'Amsterdam Avenue', 'Park Avenue', 'Madison Avenue'].sample,
 	city: "New York",
@@ -51,7 +51,7 @@ The space contains a storage space/coat closet directly accessible as well as de
 end
 
 20.times do
-	Shop.new(
+	shop = Shop.new(
 	owner_id: (1..51).to_a.sample,
 	address: (100..1800).to_a.sample.to_s + ' ' + ['Broadway', 'Atlantic Avenue', 'Bushwick Avenue', 'Bedford Avenue', 'Manhattan Avenue'].sample,
 	city: "Brooklyn",
@@ -67,7 +67,7 @@ end
 end
 
 20.times do
-	Shop.new(
+	shop = Shop.new(
 	owner_id: (1..51).to_a.sample,
 	address: (100..350).to_a.sample.to_s + ' ' + ['Oxford Street', 'Regent Street', 'Carnaby Street', "King's Road", 'Kensington', 'Camden Town'].sample,
 	city: "London",
@@ -113,7 +113,7 @@ shop = Shop.new(
 	shop.save!
 
 20.times do
-	Shop.new(
+	shop = Shop.new(
 	owner_id: (1..51).to_a.sample,
 	address: (800..4000).to_a.sample.to_s + ' ' + ['International Boulevard', 'MacArthur Boulevard', 'Broadway'].sample,
 	city: "Oakland",
@@ -129,7 +129,7 @@ shop = Shop.new(
 end
 
 20.times do
-	Shop.new(
+	shop = Shop.new(
 	owner_id: (1..51).to_a.sample,
 	address: (10000..30000).to_a.sample.to_s + ' ' + ['Ventura Boulevard', 'Sepulveda Boulevard', 'Mulholland Drive', 'Rodeo Drive', 'Santa Monica Boulevard', 'Sunset Boulevard', 'Hollywood Boulevard'].sample,
 	city: 'Los Angeles',
@@ -147,7 +147,7 @@ end
 ################
 
 15.times do
-	Shop.new(
+	shop = Shop.new(
 	owner_id: (1..51).to_a.sample,
 	address: (100..1500).to_a.sample.to_s + ' ' + ["Avenue des Champs Elysées", "Rue de Passy", "Rue de Rennes", "Boulevard Haussmann", "Avenue Montaigne", "Rue de Rivoli-Le Marais"].sample,
 	city: "Paris",
@@ -165,7 +165,7 @@ end
 #############
 
 15.times do
-	Shop.new(
+	shop = Shop.new(
 	owner_id: (1..51).to_a.sample,
 	address: (1..1000).to_a.sample.to_s + ' ' + ["Kalverstaat", "Leidsestraat", "P.C.Hooftstraat", "Cornelis Schuytstraat", "Utrechtsestraat", "Beethovenstraat"].sample,
 	city: "Amsterdam",
@@ -183,7 +183,7 @@ end
 ##############
 
 15.times do
-	Shop.new(
+	shop = Shop.new(
 	owner_id: (1..51).to_a.sample,
 	address: (1..1000).to_a.sample.to_s + ' ' + ["Via Condotti", "Via Borgogonona", "Via Frattina", "Via del Corso", "Via Cola di Rienzo", "Via Ottaviano", "Viale Giulio Cesare"].sample,
 	city: "Rome",
