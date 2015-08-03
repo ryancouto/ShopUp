@@ -125,6 +125,7 @@ ShopUp.Views.ShopShow = Backbone.View.extend({
   },
 
   submitReview: function (event) {
+    debugger
     event.preventDefault();
     var view = this
     var attrs = $('.review-form').serializeJSON().review;

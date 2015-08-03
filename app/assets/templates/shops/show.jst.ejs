@@ -43,7 +43,7 @@
     </div>
 
     <% }) %>
-    <% if (ShopUp.currentUser.id !== shop.get('owner_id')) { %>
+    <% if (ShopUp.currentUser.id && (ShopUp.currentUser.id !== shop.get('owner_id'))) { %>
 
       <div class='review-button'>
         <button class="write-review">Write a Review</button>
