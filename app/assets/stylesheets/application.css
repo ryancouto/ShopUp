@@ -70,8 +70,10 @@ img {
 
 #header {
   display: block;
-  position: fixed;
   background: white;
+  z-index: 999;
+  position: fixed;
+  width: 100%;
 }
 
 .header-nav {
