@@ -70,6 +70,7 @@ img {
 
 #header {
   display: block;
+  position: fixed;
   background: white;
 }
 
