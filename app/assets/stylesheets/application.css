@@ -135,7 +135,6 @@ img {
 
 #new-shop {
   margin-right: 0;
-
 }
 
 .user-info > a:hover {
@@ -279,9 +278,14 @@ a:hover {
 /* User-Form */
 
 .login-page > .user-form > .sign-up {
-  position: relative;
-  bottom: 60px;
+  display: block;
 }
+
+.user-form {
+  vertical-align: middle;
+}
+
+
 
 /* User-Show */
 
@@ -736,7 +740,7 @@ a:hover {
 /* login */
 .login-page {
   padding: 40px;
-  width: 328px;
+  width: 300px;
   margin: 0 auto;
 }
 
@@ -764,6 +768,7 @@ a:hover {
   display: inline-block;
   margin-bottom: 10px;
   padding-right: 40px;
+  width: 246px;
 }
 
 .log-in {
@@ -782,6 +787,14 @@ a:hover {
 
 .log-in:hover {
   opacity: 0.75
+}
+
+.login-page button {
+  width: 100%;
+}
+
+#google-login {
+  width: 270px;
 }
 
 /*GOOGLE BUTTON*/
