@@ -72,7 +72,7 @@ img {
   display: block;
   background: white;
   z-index: 999;
-  position: fixed;
+  /*position: fixed;*/
   width: 100%;
 }
 
