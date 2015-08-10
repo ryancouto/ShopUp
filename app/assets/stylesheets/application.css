@@ -297,6 +297,8 @@ a:hover {
 .user-show {
   width: 1000px;
   margin: 0 auto;
+  background: white;
+  padding-bottom: 100px;
 }
 
 .user-show a:hover {
@@ -306,8 +308,8 @@ a:hover {
 
 .user-show > span > div {
   background: white;
-  border: 1px grey solid;
-  border-radius: 10px;
+  /*border: 1px grey solid;
+  border-radius: 10px;*/
   display: inline-block;
   padding: 5px;
 }
@@ -325,23 +327,23 @@ a:hover {
 }
 
 .users-shops {
-  width: 350px;
+  width: 460px;
   float: right;
 }
 
 .user-pen-res {
   margin-top: 10px;
-  width: 350px;
+  width: 460px;
   float: right;
 }
 
 .users-res-reqs {
   margin-top: 10px;
-  width: 350px;
+  width: 460px;
 }
 
 .user-appr-res {
-  width: 350px;
+  width: 460px;
 }
 
 .user-show h3 {
@@ -353,9 +355,9 @@ a:hover {
 }
 
 .other-shops {
-  background: white;
+  /*background: white;
   border: 1px grey solid;
-  border-radius: 10px;
+  border-radius: 10px;*/
   display: inline-block;
   padding: 5px;
 }

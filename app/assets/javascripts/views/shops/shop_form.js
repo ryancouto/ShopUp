@@ -30,7 +30,6 @@ ShopUp.Views.ShopForm = Backbone.View.extend({
     var price = this.$('.price').val();
     var size = this.$('.size').val();
     var file = this.$("#input-post-image")[0].files[0];
-    debugger
     var formData = new FormData();
     formData.append("shop[address]", address);
     formData.append("shop[city]", city);
